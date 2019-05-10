@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataStructure
 {
-    class Stack : IStack
+    public class Stack : IStack
     {
         private Node _first;
         private int _size;
@@ -28,6 +28,10 @@ namespace DataStructure
 
         public Node Get()
         {
+            if (_first == null)
+            {
+                return null;
+            }
             Node result = _first;
             _first = _first.GetNext();
             _size--;
