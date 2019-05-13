@@ -42,7 +42,7 @@ namespace DataStructure.Tests
         [InlineData(10000)]
         [InlineData(100000)]
         [InlineData(1000000)]
-        public void Add_AddNodesToStackShouldWork(int count)
+        public void Add_AddNumbersToStackShouldWork(int count)
         {
             // Arrange
             int expected = count;
@@ -51,9 +51,7 @@ namespace DataStructure.Tests
             Stack sut = new Stack();
             for (int i = 0; i < count; i++)
             {
-                Node node = new Node();
-                node.SetItem(i);
-                sut.Add(node);
+                sut.Add(i);
             }
             int actual = sut.Size();
 
@@ -65,80 +63,55 @@ namespace DataStructure.Tests
         [InlineData(10000)]
         [InlineData(100000)]
         [InlineData(1000000)]
-        //[InlineData(int.MaxValue)]
-        public void Get_SetAndGetNodesShouldBeTheSame(int count)
+        public void Get_SetAndGetNumberShouldBeTheSame(int count)
         {
             // Arrange
-            Node expected = new Node();
-            expected.SetItem(42);
+            int expected = 42;
 
             // Act
             Stack sut = new Stack();
             sut.Add(expected);
             for (int i = 0; i < count; i++)
             {
-                Node node = new Node();
-                node.SetItem(i);
-                sut.Add(node);
+                sut.Add(42);
             }
             for (int i = 0; i < count; i++)
             {
                 sut.Get();
             }
-            Node actual = sut.Get();
+            int actual = sut.Get();
 
             // Assert
-            Assert.Same(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
-        public void Clear_ClearStackWithTwoNodesShouldWork()
+        public void Clear_ClearStackWithTwoNumbersShouldWork()
         {
             // Arrange
             bool expected = true;
 
             // Act
             Stack sut = new Stack();
-
-            Node firstNode = new Node();
-            firstNode.SetItem(int.MaxValue);
-            sut.Add(firstNode);
-
-            Node secondNode = new Node();
-            secondNode.SetItem(int.MinValue);
-            sut.Add(secondNode);
-
+            sut.Add(int.MaxValue);
+            sut.Add(int.MinValue);
             sut.Clear();
-
             bool actual = sut.IsEmpty();
 
             // Assert
             Assert.Equal(expected, actual);
-
         }
 
-        [Theory]
-        [InlineData(10)]
-        public void Add_AddNullNodesShouldWork(int count)
+        [Fact]
+        public void Get_GetFromEmptyStackShouldNotWork()
         {
             // Arrange
-            Stack sut = new Stack();           
-            Node expected = null;
+            Stack sut = new Stack();
 
             // Act
-            Node node = null;
-            for (int i = 0; i < count; i++)
-            {               
-                sut.Add(node);                
-            }
-            for (int i = 0; i < count; i++)
-            {                
-                sut.Get();
-            }
-            Node actual = sut.Get();
 
             // Assert
-            Assert.Same(expected, actual);
+            Assert.Throws<NullReferenceException>(() => sut.Get());
         }
     }
 }

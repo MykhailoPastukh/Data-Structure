@@ -11,8 +11,9 @@ namespace DataStructure
         private Node _first;
         private int _size;
 
-        public void Add(Node node)
+        public void Add(int item)
         {
+            Node node = new Node(item);
             if (_first == null)
             {
                 _first = node;
@@ -26,17 +27,16 @@ namespace DataStructure
             _size++;
         }
 
-        public Node Get()
+        public int Get()
         {
             if (_first == null)
             {
-                return null;
+                throw new NullReferenceException();
             }
             Node result = _first;
             _first = _first.GetNext();
             _size--;
-            result.SetNext(null);
-            return result;
+            return result.GetItem();
         }
 
         public void Clear()
@@ -47,11 +47,7 @@ namespace DataStructure
 
         public bool IsEmpty()
         {
-            if (_first == null)
-            {
-                return true;
-            }
-            return false;
+            return (_first == null) ? true : false;
         }
 
         public int Size()

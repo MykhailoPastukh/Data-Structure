@@ -11,6 +11,10 @@ namespace DataStructure
         private Node _next;
         private Node _previous;
         private int _item;
+        public Node(int item)
+        {
+            _item = item;
+        }
         public int GetItem()
         {
             return _item;

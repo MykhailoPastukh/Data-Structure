@@ -4,3 +4,4 @@ D:\Data-Structure\DataStructure\bin\Debug\DataStructure.pdb
 D:\Data-Structure\DataStructure\obj\Debug\DataStructure.csproj.CoreCompileInputs.cache
 D:\Data-Structure\DataStructure\obj\Debug\DataStructure.exe
 D:\Data-Structure\DataStructure\obj\Debug\DataStructure.pdb
+D:\Data-Structure\DataStructure\obj\Debug\DataStructure.csprojAssemblyReference.cache

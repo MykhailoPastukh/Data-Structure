@@ -8,8 +8,8 @@ namespace DataStructure
 {
     interface IDataStructure
     {
-        void Add(Node node);
-        Node Get();
+        void Add(int number);
+        int Get();
         void Clear();
         bool IsEmpty();
         int Size();
