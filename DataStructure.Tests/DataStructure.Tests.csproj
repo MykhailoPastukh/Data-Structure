@@ -60,10 +60,14 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Compile Include="QueueArrayTest.cs" />
 =======
     <Compile Include="StackArrayTests.cs" />
 >>>>>>> master
+=======
+    <Compile Include="RingBufferTests.cs" />
+>>>>>>> feature/8-add-array-based-ring-buffer
     <Compile Include="StackTests.cs" />
   </ItemGroup>
   <ItemGroup>

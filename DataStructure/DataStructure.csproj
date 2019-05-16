@@ -44,12 +44,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDataStructure.cs" />
+<<<<<<< HEAD
     <Compile Include="IQueue.cs" />
+=======
+    <Compile Include="IRingBuffer.cs" />
+>>>>>>> feature/8-add-array-based-ring-buffer
     <Compile Include="IStack.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="QueueArray.cs" />
+=======
+    <Compile Include="RingBufferArray.cs" />
+>>>>>>> feature/8-add-array-based-ring-buffer
     <Compile Include="Stack.cs" />
     <Compile Include="StackArray.cs" />
   </ItemGroup>
