@@ -28,7 +28,7 @@ namespace DataStructure
             {
                 _end = 0;
             }
-            if (_end-1 == _start && (_size-1)!=0)
+            if (_start == _end - 1 && _size != 1)
             {
                 _start++;
             }
