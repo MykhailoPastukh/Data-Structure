@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace DataStructure.Tests
@@ -16,10 +12,10 @@ namespace DataStructure.Tests
         public void Add_AddNumbersToStackArrayShouldWork(int count)
         {
             // Arrange
+            StackArray sut = new StackArray();
             int expected = count;
 
             // Act
-            StackArray sut = new StackArray();
             for (int i = 0; i < count; i++)
             {
                 sut.Add(i);
@@ -37,10 +33,10 @@ namespace DataStructure.Tests
         public void Get_SetAndGetNumberShouldBeTheSame(int count)
         {
             // Arrange
+            StackArray sut = new StackArray();
             int expected = 17;
 
             // Act
-            StackArray sut = new StackArray();
             sut.Add(expected);
             for (int i = 0; i < count; i++)
             {
@@ -60,9 +56,9 @@ namespace DataStructure.Tests
         public void Get_GetFromEmptyStack()
         {
             // Arrange
+            StackArray sut = new StackArray();
 
             // Act 
-            StackArray sut = new StackArray();
 
             // Assert
             Assert.Throws<InvalidOperationException>(() => sut.Get());
@@ -72,27 +68,28 @@ namespace DataStructure.Tests
         public void Clear_ClearStackWithSomeElementsShouldWork()
         {
             // Arrange
-            StackArray expected = new StackArray();
+            StackArray sut = new StackArray();
+            int expected = 0;
 
             // Act
-            StackArray actual = expected;
-            actual.Add(42);
-            actual.Add(17);
-            actual.Add(int.MaxValue);
-            actual.Clear();
+            sut.Add(42);
+            sut.Add(17);
+            sut.Add(int.MaxValue);
+            sut.Clear();
+            int actual = sut.Size();
 
             // Assert
-            Assert.Same(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
         public void IsEmpty_EmptyStackArrayShouldReturnTrue()
         {
             // Arrange
+            StackArray sut = new StackArray();
             bool expected = true;
 
-            // Act
-            StackArray sut = new StackArray();
+            // Act            
             bool actual = sut.IsEmpty();
 
             // Assert

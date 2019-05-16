@@ -10,6 +10,7 @@ namespace DataStructure
         {
             _stack = new int[0];
         }
+
         public void Add(int number)
         {
             if (_stack.Length == 0)
@@ -51,7 +52,7 @@ namespace DataStructure
 
         public bool IsEmpty()
         {
-            return _stack.Length == 0 ? true : false;
+            return _stack.Length == 0;
         }
 
         public int Size()
