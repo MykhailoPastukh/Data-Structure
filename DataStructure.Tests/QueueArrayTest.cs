@@ -8,26 +8,33 @@ namespace DataStructure.Tests
         [Fact]
         public void IsEmpty_EmptyQueueShouldReturnTrue()
         {
+            // Arrange
+            QueueArray sut = new QueueArray();
             bool expected = true;
 
-            QueueArray sut = new QueueArray();
+            // Act
             bool actual = sut.IsEmpty();
 
+            // Assert
             Assert.Equal(expected,actual);
         }
 
         [Fact]
         public void Clear_ClearQueueArrayWithSomeNumbersShoulWork()
         {
-            QueueArray expected = new QueueArray();
+            // Arrange
+            QueueArray sut = new QueueArray();
+            int expected = 0;
 
-            QueueArray sut = expected;
+            // Act
             sut.Add(int.MaxValue);
             sut.Add(int.MinValue);
             sut.Add(42);
             sut.Clear();
+            int actual = sut.Size();
 
-            Assert.Same(expected,sut);
+            // Assert
+            Assert.Equal(expected,actual);
         }
 
         [Theory]
@@ -35,15 +42,18 @@ namespace DataStructure.Tests
         [InlineData(10000)]
         public void Add_AddManyNumbersToQueueArrayShouldWork(int count)
         {
-            int expected = count;
-
+            // Arrange
             QueueArray sut = new QueueArray();
+            int expected = count;
+            
+            // Act
             for (int i = 0; i < count; i++)
             {
                 sut.Add(i);
             }
             int actual = sut.Size();
 
+            // Assert
             Assert.Equal(expected, actual);
         }
 
@@ -51,12 +61,16 @@ namespace DataStructure.Tests
         [InlineData(100)]
         public void Get_GetNumbersFromQueueArrayShouldWork(int count)
         {
+            // Arrange
             QueueArray sut = new QueueArray();
+
+            // Act
             for (int i = 0; i < count; i++)
             {
                 sut.Add(i);
             }
 
+            // Assert
             for (int expected = 0; expected < count; expected++)
             {
                 Assert.Equal(expected,sut.Get());
@@ -66,7 +80,12 @@ namespace DataStructure.Tests
         [Fact]
         public void Get_GetFromEmptyQueueShouldNotWork()
         {
+            // Arrange
             QueueArray sut = new QueueArray();
+
+            // Act
+
+            // Assert
             Assert.Throws<InvalidOperationException>(() => sut.Get());
         }
     }

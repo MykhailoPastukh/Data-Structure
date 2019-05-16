@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructure
 {
@@ -55,7 +52,7 @@ namespace DataStructure
 
         public bool IsEmpty()
         {
-            return _queue.Length == 0 ? true : false;
+            return _queue.Length == 0;
         }
 
         public int Size()
