@@ -59,7 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
+    <Compile Include="QueueArrayTest.cs" />
+=======
     <Compile Include="StackArrayTests.cs" />
+>>>>>>> master
     <Compile Include="StackTests.cs" />
   </ItemGroup>
   <ItemGroup>
