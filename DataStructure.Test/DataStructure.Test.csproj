@@ -7,11 +7,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{84EED567-6627-4A8F-994B-FFF123AB5EDB}</ProjectGuid>
+    <ProjectGuid>{586C4C4D-ED6D-4429-99B8-D73971212EE3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataStructure1.Test</RootNamespace>
-    <AssemblyName>DataStructure1.Test</AssemblyName>
+    <RootNamespace>DataStructure.Test</RootNamespace>
+    <AssemblyName>DataStructure.Test</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -71,8 +71,8 @@
     <Analyzer Include="..\DataStructure\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataStructure1\DataStructure.csproj">
-      <Project>{d08fa887-8c64-47f8-80c8-186787e88142}</Project>
+    <ProjectReference Include="..\DataStructure\DataStructure.csproj">
+      <Project>{aa32c24b-478c-4f87-866f-4e6411d6fd40}</Project>
       <Name>DataStructure</Name>
     </ProjectReference>
   </ItemGroup>
