@@ -43,7 +43,15 @@ namespace DataStructure
             }
             Node result = _last;
             _last = _last.GetPrevious();
-            _size--;
+            if (_size == 1)
+            {
+                Clear();
+            }
+            else
+            {
+                _last.SetNext(null);
+                _size--;
+            }
             return result.GetItem();
         }
 
@@ -55,7 +63,15 @@ namespace DataStructure
             }
             Node result = _first;
             _first = _first.GetNext();
-            _size--;
+            if (_size == 1)
+            {
+                Clear();
+            }
+            else
+            {
+                _first.SetPrevious(null);
+                _size--;
+            }
             return result.GetItem();
         }
 
