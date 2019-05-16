@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D30569F6-75E2-4E3B-AB77-0DC2A609A184}</ProjectGuid>
+    <ProjectGuid>{D08FA887-8C64-47F8-80C8-186787E88142}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DataStructure</RootNamespace>
-    <AssemblyName>DataStructure</AssemblyName>
+    <RootNamespace>DataStructure1</RootNamespace>
+    <AssemblyName>DataStructure1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,20 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDataStructure.cs" />
-<<<<<<< HEAD
     <Compile Include="IQueue.cs" />
-=======
     <Compile Include="IRingBuffer.cs" />
->>>>>>> feature/8-add-array-based-ring-buffer
     <Compile Include="IStack.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <Compile Include="QueueArray.cs" />
-=======
     <Compile Include="RingBufferArray.cs" />
->>>>>>> feature/8-add-array-based-ring-buffer
     <Compile Include="Stack.cs" />
     <Compile Include="StackArray.cs" />
   </ItemGroup>
