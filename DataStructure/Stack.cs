@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructure
 {
@@ -33,10 +29,17 @@ namespace DataStructure
             {
                 throw new NullReferenceException();
             }
-            Node result = _first;
-            _first = _first.GetNext();
-            _size--;
-            return result.GetItem();
+            int result = _first.GetItem();
+            if (_size == 1)
+            {
+                Clear();
+            }
+            else
+            {
+                _first = _first.GetNext();
+                _size--;
+            }
+            return result;
         }
 
         public void Clear()
@@ -47,7 +50,7 @@ namespace DataStructure
 
         public bool IsEmpty()
         {
-            return (_first == null) ? true : false;
+            return _first == null;
         }
 
         public int Size()
