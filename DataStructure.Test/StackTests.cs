@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataStructure;
 using Xunit;
 
 namespace DataStructure.Tests
@@ -14,10 +9,10 @@ namespace DataStructure.Tests
         public void Size_EmptyStackShouldReturnZero()
         {
             // Arrange
+            Stack sut = new Stack();
             int expected = 0;
 
             // Act
-            Stack sut = new Stack();
             int actual = sut.Size();
 
             // Assert
@@ -28,10 +23,10 @@ namespace DataStructure.Tests
         public void IsEmpty_EmptyStackShouldReturnTrue()
         {
             // Arrange
+            Stack sut = new Stack();
             bool expected = true;
 
             // Act
-            Stack sut = new Stack();
             bool actual = sut.IsEmpty();
 
             // Assert
@@ -45,10 +40,10 @@ namespace DataStructure.Tests
         public void Add_AddNumbersToStackShouldWork(int count)
         {
             // Arrange
+            Stack sut = new Stack();
             int expected = count;
 
             // Act
-            Stack sut = new Stack();
             for (int i = 0; i < count; i++)
             {
                 sut.Add(i);
@@ -66,14 +61,14 @@ namespace DataStructure.Tests
         public void Get_SetAndGetNumberShouldBeTheSame(int count)
         {
             // Arrange
+            Stack sut = new Stack();
             int expected = 42;
 
             // Act
-            Stack sut = new Stack();
             sut.Add(expected);
             for (int i = 0; i < count; i++)
             {
-                sut.Add(42);
+                sut.Add(i);
             }
             for (int i = 0; i < count; i++)
             {
@@ -89,10 +84,10 @@ namespace DataStructure.Tests
         public void Clear_ClearStackWithTwoNumbersShouldWork()
         {
             // Arrange
+            Stack sut = new Stack();
             bool expected = true;
 
             // Act
-            Stack sut = new Stack();
             sut.Add(int.MaxValue);
             sut.Add(int.MinValue);
             sut.Clear();
@@ -103,7 +98,7 @@ namespace DataStructure.Tests
         }
 
         [Fact]
-        public void Get_GetFromEmptyStackShouldNotWork()
+        public void Get_GetFromEmptyStackShouldThrowExeption()
         {
             // Arrange
             Stack sut = new Stack();
@@ -111,7 +106,7 @@ namespace DataStructure.Tests
             // Act
 
             // Assert
-            Assert.Throws<NullReferenceException>(() => sut.Get());
+            Assert.Throws<InvalidOperationException>(() => sut.Get());
         }
     }
 }
