@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructure
 {
@@ -16,7 +12,7 @@ namespace DataStructure
         {
             Node node = new Node(item);
             node.SetItem(item);
-            if (_first == null)
+            if (_size == 0)
             {
                 _first = node;
                 _last = node;
@@ -32,9 +28,9 @@ namespace DataStructure
 
         public int Get()
         {
-            if (_last == null)
+            if (_size == 0)
             {
-                throw new NullReferenceException("Queue empty");
+                throw new InvalidOperationException("Queue empty");
             }
             Node result = _last;
             _last = _last.GetPrevious();
@@ -59,7 +55,7 @@ namespace DataStructure
 
         public bool IsEmpty()
         {
-            return _first == null;
+            return _size == 0;
         }
 
         public int Size()

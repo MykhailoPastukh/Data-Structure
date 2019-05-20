@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace DataStructure.Test
@@ -81,7 +78,7 @@ namespace DataStructure.Test
         }
 
         [Fact]
-        public void Get_GetFromEmptyQueueShouldNotWork()
+        public void Get_GetFromEmptyQueueShouldThrowExeption()
         {
             // Arrange
             Queue sut = new Queue();
@@ -89,7 +86,7 @@ namespace DataStructure.Test
             // Act
 
             // Assert
-            Assert.Throws<NullReferenceException>(() => sut.Get());
+            Assert.Throws<InvalidOperationException>(() => sut.Get());
         }
     }
 }
