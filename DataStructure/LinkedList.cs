@@ -14,7 +14,7 @@ namespace DataStructure
         public void Add(int item)
         {
             Node node = new Node(item);
-            if (_first == null)
+            if (_size == 0)
             {
                 _first = node;
                 _last = node;
@@ -37,9 +37,9 @@ namespace DataStructure
 
         public int Get()
         {
-            if (_first == null)
+            if (_size == 0)
             {
-                throw new NullReferenceException();
+                throw new InvalidOperationException("Linked List Empty");
             }
             Node result = _last;
             _last = _last.GetPrevious();
@@ -57,9 +57,9 @@ namespace DataStructure
 
         public int GetFirst()
         {
-            if (_first == null)
+            if (_size == 0)
             {
-                throw new NullReferenceException();
+                throw new InvalidOperationException("Linked List Empty");
             }
             Node result = _first;
             _first = _first.GetNext();
@@ -77,7 +77,7 @@ namespace DataStructure
 
         public bool IsEmpty()
         {
-            return _first == null;   
+            return _size == 0;   
         }
 
         public int Size()

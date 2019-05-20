@@ -13,10 +13,10 @@ namespace DataStructure.Test
         public void Size_EmptyLinkedListShouldReturnZero()
         {
             // Arrange
+            LinkedList sut = new LinkedList();
             int expected = 0;
 
             // Act
-            LinkedList sut = new LinkedList();
             int actual = sut.Size();
 
             // Assert
@@ -27,10 +27,10 @@ namespace DataStructure.Test
         public void IsEmpty_EmptyLinkedListShouldReturnTrue()
         {
             // Arrange
+            LinkedList sut = new LinkedList();
             bool expected = true;
 
             // Act
-            LinkedList sut = new LinkedList();
             bool actual = sut.IsEmpty();
 
             // Assert
@@ -44,10 +44,10 @@ namespace DataStructure.Test
         public void Add_AddNumbersToLinkedListShouldWork(int count)
         {
             // Arrange
+            LinkedList sut = new LinkedList();
             int expected = count;
 
             // Act
-            LinkedList sut = new LinkedList();
             for (int i = 0; i < count; i++)
             {
                 sut.Add(i);
@@ -132,7 +132,7 @@ namespace DataStructure.Test
             // Act
 
             // Assert
-            Assert.Throws<NullReferenceException>(() => sut.Get());
+            Assert.Throws<InvalidOperationException>(() => sut.Get());
         }
 
         [Fact]
@@ -144,7 +144,7 @@ namespace DataStructure.Test
             // Act
 
             // Assert
-            Assert.Throws<NullReferenceException>(() => sut.GetFirst());
+            Assert.Throws<InvalidOperationException>(() => sut.GetFirst());
         }
     }
 }
