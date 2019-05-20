@@ -63,6 +63,7 @@
     <Compile Include="QueueArrayTest.cs" />
     <Compile Include="QueueTests.cs" />
     <Compile Include="RingBufferTests.cs" />
+    <Compile Include="RingBufferArrayTests.cs" />
     <Compile Include="StackArrayTests.cs" />
     <Compile Include="StackTests.cs" />
   </ItemGroup>
