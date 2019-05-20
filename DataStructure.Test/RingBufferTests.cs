@@ -58,7 +58,7 @@ namespace DataStructure.Test
         }
 
         [Fact]
-        public void Get_GetNumbersFromEmptyRingBufferShouldNotWork()
+        public void Get_GetNumbersFromEmptyRingBufferShouldThrowExeption()
         {
             // Arrange
             RingBuffer sut = new RingBuffer(5);
@@ -66,7 +66,7 @@ namespace DataStructure.Test
             // Act
 
             // Assert
-            Assert.Throws<NullReferenceException>(() => sut.Get());
+            Assert.Throws<InvalidOperationException>(() => sut.Get());
         }
 
         [Fact]
@@ -89,7 +89,7 @@ namespace DataStructure.Test
         }
 
         [Fact]
-        public void RingBuffer_CreateRingBufferWithNegativeSizeShouldNotWork()
+        public void RingBuffer_CreateRingBufferWithNegativeSizeShouldThrowExeption()
         {
             // Arrange
 

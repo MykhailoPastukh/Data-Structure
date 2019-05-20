@@ -54,7 +54,7 @@ namespace DataStructure
         {
             if(_count == 0)
             {
-                throw new NullReferenceException("Ring Buffer empty");
+                throw new InvalidOperationException("Ring Buffer empty");
             }
             int result = _first.GetItem();
             _first.SetItem(0);
