@@ -10,7 +10,7 @@ namespace DataStructure
         public void Add(int item)
         {
             Node node = new Node(item);
-            if (_first == null)
+            if (_size == 0)
             {
                 _first = node;
             }
@@ -25,9 +25,9 @@ namespace DataStructure
 
         public int Get()
         {
-            if (_first == null)
+            if (_size == 0)
             {
-                throw new NullReferenceException();
+                throw new InvalidOperationException("Stack empty");
             }
             int result = _first.GetItem();
             if (_size == 1)
@@ -50,7 +50,7 @@ namespace DataStructure
 
         public bool IsEmpty()
         {
-            return _first == null;
+            return _size == 0;
         }
 
         public int Size()

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataStructure;
 using Xunit;
 
 namespace DataStructure.Tests
@@ -103,7 +98,7 @@ namespace DataStructure.Tests
         }
 
         [Fact]
-        public void Get_GetFromEmptyStackShouldNotWork()
+        public void Get_GetFromEmptyStackShouldThrowExeption()
         {
             // Arrange
             Stack sut = new Stack();
@@ -111,7 +106,7 @@ namespace DataStructure.Tests
             // Act
 
             // Assert
-            Assert.Throws<NullReferenceException>(() => sut.Get());
+            Assert.Throws<InvalidOperationException>(() => sut.Get());
         }
     }
 }
