@@ -78,6 +78,22 @@
       <Project>{aa32c24b-478c-4f87-866f-4e6411d6fd40}</Project>
       <Name>DataStructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LinkedList\LinkedList.csproj">
+      <Project>{19a431b6-c8df-4813-b613-da2a01dd9f84}</Project>
+      <Name>LinkedList</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Queue\Queue.csproj">
+      <Project>{53135a98-40bd-4763-b1b8-61ff60fa6b59}</Project>
+      <Name>Queue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RingBuffer\RingBuffer.csproj">
+      <Project>{18ef88c1-a875-4a34-9857-6bbe528f02e2}</Project>
+      <Name>RingBuffer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stack\Stack.csproj">
+      <Project>{eb161fb8-459b-458b-b55c-ca6b60b85488}</Project>
+      <Name>Stack</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

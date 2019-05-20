@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataStructure
 {
-    interface IDataStructure
+    public interface IDataStructure
     {
         void Add(int number);
         int Get();

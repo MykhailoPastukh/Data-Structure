@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataStructure
 {
-    interface IStack : IDataStructure
+    public interface IStack : IDataStructure
     {
     }
 }

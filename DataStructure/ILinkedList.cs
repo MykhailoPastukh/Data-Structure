@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataStructure
 {
-    interface ILinkedList : IDataStructure
+    public interface ILinkedList : IDataStructure
     {
         int GetFirst();
     }

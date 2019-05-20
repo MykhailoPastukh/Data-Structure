@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataStructure
 {
-    interface IRingBuffer : IDataStructure
+    public interface IRingBuffer : IDataStructure
     {
     }
 }
