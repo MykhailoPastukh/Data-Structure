@@ -20,7 +20,7 @@ namespace DataStructure
             Node currentNode = _first;
             for (int i = 0; i < length-1; i++)
             {
-                currentNode.SetNext(new Node(i+1));
+                currentNode.SetNext(new Node());
                 currentNode.GetNext().SetPrevious(currentNode);
                 currentNode = currentNode.GetNext();
             }
@@ -79,7 +79,7 @@ namespace DataStructure
             Node lastNode = _end.GetNext();
             for (int i = 0; i < length; i++)
             {
-                currentNode.SetNext(new Node(0));
+                currentNode.SetNext(new Node());
                 currentNode.GetNext().SetPrevious(currentNode);
                 currentNode.GetNext().SetNext(lastNode);
                 currentNode = currentNode.GetNext();
