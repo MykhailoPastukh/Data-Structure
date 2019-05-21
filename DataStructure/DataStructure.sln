@@ -5,15 +5,21 @@ VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure", "DataStructure.csproj", "{AA32C24B-478C-4F87-866F-4E6411D6FD40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure.Test", "..\DataStructure.Test\DataStructure.Test.csproj", "{586C4C4D-ED6D-4429-99B8-D73971212EE3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructure.Tests", "..\DataStructure.Test\DataStructure.Tests.csproj", "{586C4C4D-ED6D-4429-99B8-D73971212EE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack", "..\Stack\Stack.csproj", "{EB161FB8-459B-458B-B55C-CA6B60B85488}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedList-based Stack", "..\Stack\LinkedList-based Stack.csproj", "{EB161FB8-459B-458B-B55C-CA6B60B85488}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queue", "..\Queue\Queue.csproj", "{53135A98-40BD-4763-B1B8-61FF60FA6B59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array-based Queue", "..\Queue\Array-based Queue.csproj", "{53135A98-40BD-4763-B1B8-61FF60FA6B59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RingBuffer", "..\RingBuffer\RingBuffer.csproj", "{18EF88C1-A875-4A34-9857-6BBE528F02E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedList-based RingBuffer", "..\RingBuffer\LinkedList-based RingBuffer.csproj", "{18EF88C1-A875-4A34-9857-6BBE528F02E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "..\LinkedList\LinkedList.csproj", "{19A431B6-C8DF-4813-B613-DA2A01DD9F84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedList", "..\LinkedList\LinkedList.csproj", "{19A431B6-C8DF-4813-B613-DA2A01DD9F84}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array-based Stack", "..\Array-based Stack\Array-based Stack.csproj", "{B9327EF4-1D21-4E03-93E7-A6646BE211F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedList-based Queue", "..\LinkedList-based Queue\LinkedList-based Queue.csproj", "{9D700656-BB2F-4369-B4BE-8D48D6EF18F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array-based Ring Buffer", "..\Array-based Ring Buffer\Array-based Ring Buffer.csproj", "{8DD64234-2CC6-4A6A-82A8-72CDA59A4970}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +51,18 @@ Global
 		{19A431B6-C8DF-4813-B613-DA2A01DD9F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19A431B6-C8DF-4813-B613-DA2A01DD9F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19A431B6-C8DF-4813-B613-DA2A01DD9F84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9327EF4-1D21-4E03-93E7-A6646BE211F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9327EF4-1D21-4E03-93E7-A6646BE211F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9327EF4-1D21-4E03-93E7-A6646BE211F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9327EF4-1D21-4E03-93E7-A6646BE211F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D700656-BB2F-4369-B4BE-8D48D6EF18F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D700656-BB2F-4369-B4BE-8D48D6EF18F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D700656-BB2F-4369-B4BE-8D48D6EF18F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D700656-BB2F-4369-B4BE-8D48D6EF18F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD64234-2CC6-4A6A-82A8-72CDA59A4970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD64234-2CC6-4A6A-82A8-72CDA59A4970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD64234-2CC6-4A6A-82A8-72CDA59A4970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD64234-2CC6-4A6A-82A8-72CDA59A4970}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

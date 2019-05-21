@@ -2,22 +2,25 @@
 
 namespace DataStructure
 {
-    public class Stack : IStack
+    public class QueueLinkedList : IQueue
     {
         private Node _first;
+        private Node _last;
         private int _size;
 
         public void Add(int item)
         {
             Node node = new Node(item);
+            node.SetItem(item);
             if (_size == 0)
             {
                 _first = node;
+                _last = node;
             }
             else
             {
-                node.SetNext(_first);
                 _first.SetPrevious(node);
+                node.SetNext(_first);
                 _first = node;
             }
             _size++;
@@ -27,24 +30,26 @@ namespace DataStructure
         {
             if (_size == 0)
             {
-                throw new InvalidOperationException("Stack empty");
+                throw new InvalidOperationException("Queue empty");
             }
-            int result = _first.GetItem();
-            if (_size == 1)
+            Node result = _last;
+            _last = _last.GetPrevious();
+            if (_size != 1)
             {
-                Clear();
+                _last.SetNext(null);
+                _size--;
             }
             else
             {
-                _first = _first.GetNext();
-                _size--;
+                Clear();
             }
-            return result;
+            return result.GetItem();
         }
 
         public void Clear()
         {
             _first = null;
+            _last = null;
             _size = 0;
         }
 

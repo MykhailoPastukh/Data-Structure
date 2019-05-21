@@ -60,12 +60,12 @@
   <ItemGroup>
     <Compile Include="LinkedListTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueueArrayTest.cs" />
-    <Compile Include="QueueTests.cs" />
-    <Compile Include="RingBufferTests.cs" />
+    <Compile Include="QueueArrayTests.cs" />
+    <Compile Include="QueueLinkedListTests.cs" />
+    <Compile Include="RingBufferLinkedListTests.cs" />
     <Compile Include="RingBufferArrayTests.cs" />
     <Compile Include="StackArrayTests.cs" />
-    <Compile Include="StackTests.cs" />
+    <Compile Include="StackLinkedListTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -74,25 +74,37 @@
     <Analyzer Include="..\DataStructure\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Array-based Ring Buffer\Array-based Ring Buffer.csproj">
+      <Project>{8dd64234-2cc6-4a6a-82a8-72cda59a4970}</Project>
+      <Name>Array-based Ring Buffer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Array-based Stack\Array-based Stack.csproj">
+      <Project>{b9327ef4-1d21-4e03-93e7-a6646be211f8}</Project>
+      <Name>Array-based Stack</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataStructure\DataStructure.csproj">
       <Project>{aa32c24b-478c-4f87-866f-4e6411d6fd40}</Project>
       <Name>DataStructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LinkedList-based Queue\LinkedList-based Queue.csproj">
+      <Project>{9d700656-bb2f-4369-b4be-8d48d6ef18f9}</Project>
+      <Name>LinkedList-based Queue</Name>
     </ProjectReference>
     <ProjectReference Include="..\LinkedList\LinkedList.csproj">
       <Project>{19a431b6-c8df-4813-b613-da2a01dd9f84}</Project>
       <Name>LinkedList</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Queue\Queue.csproj">
+    <ProjectReference Include="..\Queue\Array-based Queue.csproj">
       <Project>{53135a98-40bd-4763-b1b8-61ff60fa6b59}</Project>
-      <Name>Queue</Name>
+      <Name>Array-based Queue</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RingBuffer\RingBuffer.csproj">
+    <ProjectReference Include="..\RingBuffer\LinkedList-based RingBuffer.csproj">
       <Project>{18ef88c1-a875-4a34-9857-6bbe528f02e2}</Project>
-      <Name>RingBuffer</Name>
+      <Name>LinkedList-based RingBuffer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Stack\Stack.csproj">
+    <ProjectReference Include="..\Stack\LinkedList-based Stack.csproj">
       <Project>{eb161fb8-459b-458b-b55c-ca6b60b85488}</Project>
-      <Name>Stack</Name>
+      <Name>LinkedList-based Stack</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

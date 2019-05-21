@@ -3,13 +3,13 @@ using Xunit;
 
 namespace DataStructure.Tests
 {
-    public class StackTests
+    public class StackLinkedListTests
     {
         [Fact]
         public void Size_EmptyStackShouldReturnZero()
         {
             // Arrange
-            Stack sut = new Stack();
+            StackLinkedList sut = new StackLinkedList();
             int expected = 0;
 
             // Act
@@ -23,7 +23,7 @@ namespace DataStructure.Tests
         public void IsEmpty_EmptyStackShouldReturnTrue()
         {
             // Arrange
-            Stack sut = new Stack();
+            StackLinkedList sut = new StackLinkedList();
             bool expected = true;
 
             // Act
@@ -40,7 +40,7 @@ namespace DataStructure.Tests
         public void Add_AddNumbersToStackShouldWork(int count)
         {
             // Arrange
-            Stack sut = new Stack();
+            StackLinkedList sut = new StackLinkedList();
             int expected = count;
 
             // Act
@@ -61,7 +61,7 @@ namespace DataStructure.Tests
         public void Get_SetAndGetNumberShouldBeTheSame(int count)
         {
             // Arrange
-            Stack sut = new Stack();
+            StackLinkedList sut = new StackLinkedList();
             int expected = 42;
 
             // Act
@@ -84,7 +84,7 @@ namespace DataStructure.Tests
         public void Clear_ClearStackWithTwoNumbersShouldWork()
         {
             // Arrange
-            Stack sut = new Stack();
+            StackLinkedList sut = new StackLinkedList();
             bool expected = true;
 
             // Act
@@ -101,7 +101,7 @@ namespace DataStructure.Tests
         public void Get_GetFromEmptyStackShouldThrowExeption()
         {
             // Arrange
-            Stack sut = new Stack();
+            StackLinkedList sut = new StackLinkedList();
 
             // Act
 

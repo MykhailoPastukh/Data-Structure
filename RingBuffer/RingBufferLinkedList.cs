@@ -2,14 +2,14 @@
 
 namespace DataStructure
 {
-    public class RingBuffer : IRingBuffer
+    public class RingBufferLinkedList : IRingBuffer
     {
         private int _size;
         private int _count;
         private Node _first;
         private Node _end;
 
-        public RingBuffer(int length)
+        public RingBufferLinkedList(int length)
         {
             if (length < 1)
             {
