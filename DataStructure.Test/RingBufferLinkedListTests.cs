@@ -1,15 +1,15 @@
 ﻿using System;
 using Xunit;
 
-namespace DataStructure.Test
+namespace DataStructure.Tests
 {
-    public class RingBufferTests
+    public class RingBufferLinkedListTests
     {
         [Fact]
         public void Add_AddSomeNumbersToRingBufferShouldWork()
         {
             // Arrange
-            RingBuffer sut = new RingBuffer(3);
+            RingBufferLinkedList sut = new RingBufferLinkedList(3);
             int expected = 3;
 
             // Act
@@ -26,7 +26,7 @@ namespace DataStructure.Test
         public void Add_AddNumbersToFullRingBufferShouldNotWork()
         {
             // Arrange
-            RingBuffer sut = new RingBuffer(5);
+            RingBufferLinkedList sut = new RingBufferLinkedList(5);
 
             // Act
             for (int i = 0; i < 5; i++)
@@ -42,7 +42,7 @@ namespace DataStructure.Test
         public void Clear_ClearRingBufferShouldWork()
         {
             // Arrange
-            RingBuffer sut = new RingBuffer(100);
+            RingBufferLinkedList sut = new RingBufferLinkedList(100);
             bool expected = true;
 
             // Act
@@ -61,7 +61,7 @@ namespace DataStructure.Test
         public void Get_GetNumbersFromEmptyRingBufferShouldThrowExeption()
         {
             // Arrange
-            RingBuffer sut = new RingBuffer(5);
+            RingBufferLinkedList sut = new RingBufferLinkedList(5);
 
             // Act
 
@@ -73,7 +73,7 @@ namespace DataStructure.Test
         public void Get_AddAndGetSomeNumbersShouldWork()
         {
             // Arrange
-            RingBuffer sut = new RingBuffer(5);
+            RingBufferLinkedList sut = new RingBufferLinkedList(5);
             int expected = 42;
 
             // Act
@@ -96,14 +96,14 @@ namespace DataStructure.Test
             // Act
 
             // Assert
-            Assert.Throws<ArgumentException>(()=>new RingBuffer(-2));
+            Assert.Throws<ArgumentException>(()=>new RingBufferLinkedList(-2));
         }
 
         [Fact]
         public void Expand_ExpandRingBufferShouldWork()
         {
             // Arrange
-            RingBuffer sut = new RingBuffer(3);
+            RingBufferLinkedList sut = new RingBufferLinkedList(3);
             int expected = 5;
 
             // Act

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataStructure
+﻿namespace DataStructure
 {
-    interface IRingBuffer : IDataStructure
+    public interface IRingBuffer : IDataStructure
     {
+
     }
 }

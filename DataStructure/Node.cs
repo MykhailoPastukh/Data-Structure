@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataStructure
+﻿namespace DataStructure
 {
     public class Node
     {
         private Node _next;
         private Node _previous;
         private int _item;
+        public Node()
+        {
+
+        }
         public Node(int item)
         {
             _item = item;

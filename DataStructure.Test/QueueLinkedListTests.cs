@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace DataStructure.Test
+namespace DataStructure.Tests
 {
-    public class QueueTests
+    public class QueueLinkedListTests
     {
         [Fact]
         public void IsEmpty_EmptyQueueShouldReturnTrue()
         {
             // Arrange
-            Queue sut = new Queue();
+            QueueLinkedList sut = new QueueLinkedList();
             bool expected = true;
 
             // Act
@@ -24,7 +24,7 @@ namespace DataStructure.Test
         public void Clear_ClearQueueWithSomeNumbersShoulWork()
         {
             // Arrange
-            Queue sut = new Queue();
+            QueueLinkedList sut = new QueueLinkedList();
             int expected = 0;
 
             // Act
@@ -44,7 +44,7 @@ namespace DataStructure.Test
         public void Add_AddManyNumbersToQueueShouldWork(int count)
         {
             // Arrange
-            Queue sut = new Queue();
+            QueueLinkedList sut = new QueueLinkedList();
             int expected = count;
 
             // Act
@@ -62,7 +62,7 @@ namespace DataStructure.Test
         public void Get_GetNumbersFromQueueShouldWork()
         {
             // Arrange
-            Queue sut = new Queue();
+            QueueLinkedList sut = new QueueLinkedList();
 
             // Act
             for (int i = 0; i < 100; i++)
@@ -81,7 +81,7 @@ namespace DataStructure.Test
         public void Get_GetFromEmptyQueueShouldThrowExeption()
         {
             // Arrange
-            Queue sut = new Queue();
+            QueueLinkedList sut = new QueueLinkedList();
 
             // Act
 
