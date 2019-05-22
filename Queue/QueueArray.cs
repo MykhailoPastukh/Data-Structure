@@ -3,26 +3,26 @@ using System.Linq;
 
 namespace DataStructure
 {
-    public class QueueArray
+    public class QueueArray<T> : IQueue<T>
     {
-        private int[] _queue;
+        private T[] _queue;
 
         public QueueArray()
         {
-            _queue = new int[0];
+            _queue = new T[0];
         }
-        public void Add(int number)
+        public void Add(T item)
         {
             if (_queue.Length == 0)
             {
-                _queue = new int[1];
-                _queue[0] = number;
+                _queue = new T[1];
+                _queue[0] = item;
             }
             else
             {
-                int[] arr = _queue;
-                _queue = new int[arr.Length + 1];
-                _queue[0] = number;
+                T[] arr = _queue;
+                _queue = new T[arr.Length + 1];
+                _queue[0] = item;
                 for (int i = 0; i < arr.Length; i++)
                 {
                     _queue[i + 1] = arr[i];
@@ -32,17 +32,17 @@ namespace DataStructure
 
         public void Clear()
         {
-            _queue = new int[0];
+            _queue = new T[0];
         }
 
-        public int Get()
+        public T Get()
         {
             if (_queue.Length == 0)
             {
                 throw new InvalidOperationException("QueueArray empty");
             }
-            int[] arr = _queue;
-            _queue = new int[arr.Length - 1];
+            T[] arr = _queue;
+            _queue = new T[arr.Length - 1];
             for (int i = 0; i < _queue.Length; i++)
             {
                 _queue[i] = arr[i];

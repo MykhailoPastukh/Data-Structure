@@ -2,9 +2,9 @@
 
 namespace DataStructure
 {
-    public class RingBufferArray : IRingBuffer
+    public class RingBufferArray<T> : IRingBuffer<T>
     {
-        private int[] _ringBuffer;
+        private T[] _ringBuffer;
         private int _start;
         private int _end;
         private int _size;
@@ -15,13 +15,13 @@ namespace DataStructure
             {
                 throw new ArgumentException("Size should be greater than 0");
             }
-            _ringBuffer = new int[size];
+            _ringBuffer = new T[size];
             _start = 0;
             _end = 0;
         }
-        public void Add(int number)
+        public void Add(T item)
         {            
-            _ringBuffer[_end] = number;
+            _ringBuffer[_end] = item;
             _size++;
             _end++;
             if (_end > _ringBuffer.Length - 1)
@@ -45,7 +45,7 @@ namespace DataStructure
             _size = 0;
         }
 
-        public int Get()
+        public T Get()
         {
             if (IsEmpty())
             {

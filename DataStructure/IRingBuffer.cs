@@ -1,6 +1,6 @@
 ﻿namespace DataStructure
 {
-    public interface IRingBuffer : IDataStructure
+    public interface IRingBuffer<T> : IDataStructure<T>
     {
 
     }

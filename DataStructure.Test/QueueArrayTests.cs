@@ -9,7 +9,7 @@ namespace DataStructure.Tests
         public void IsEmpty_EmptyQueueShouldReturnTrue()
         {
             // Arrange
-            QueueArray sut = new QueueArray();
+            QueueArray<int> sut = new QueueArray<int>();
             bool expected = true;
 
             // Act
@@ -23,7 +23,7 @@ namespace DataStructure.Tests
         public void Clear_ClearQueueArrayWithSomeNumbersShoulWork()
         {
             // Arrange
-            QueueArray sut = new QueueArray();
+            QueueArray<int> sut = new QueueArray<int>();
             int expected = 0;
 
             // Act
@@ -43,7 +43,7 @@ namespace DataStructure.Tests
         public void Add_AddManyNumbersToQueueArrayShouldWork(int count)
         {
             // Arrange
-            QueueArray sut = new QueueArray();
+            QueueArray<int> sut = new QueueArray<int>();
             int expected = count;
             
             // Act
@@ -62,7 +62,7 @@ namespace DataStructure.Tests
         public void Get_GetNumbersFromQueueArrayShouldWork(int count)
         {
             // Arrange
-            QueueArray sut = new QueueArray();
+            QueueArray<int> sut = new QueueArray<int>();
 
             // Act
             for (int i = 0; i < count; i++)
@@ -81,7 +81,7 @@ namespace DataStructure.Tests
         public void Get_GetFromEmptyQueueShouldNotWork()
         {
             // Arrange
-            QueueArray sut = new QueueArray();
+            QueueArray<int> sut = new QueueArray<int>();
 
             // Act
 

@@ -2,27 +2,27 @@
 
 namespace DataStructure
 {
-    public class StackArray : IStack
+    public class StackArray<T> : IStack<T>
     {
-        private int[] _stack;
+        private T[] _stack;
 
         public StackArray()
         {
-            _stack = new int[0];
+            _stack = new T[0];
         }
 
-        public void Add(int number)
+        public void Add(T item)
         {
             if (_stack.Length == 0)
             {
-                _stack = new int[1];
-                _stack[0] = number;
+                _stack = new T[1];
+                _stack[0] = item;
             }
             else
             {
-                int[] arr = _stack;
-                _stack = new int[arr.Length + 1];
-                _stack[0] = number;
+                T[] arr = _stack;
+                _stack = new T[arr.Length + 1];
+                _stack[0] = item;
                 for (int i = 0; i < arr.Length; i++)
                 {
                     _stack[i + 1] = arr[i];
@@ -32,17 +32,17 @@ namespace DataStructure
 
         public void Clear()
         {
-            _stack = new int[0];
+            _stack = new T[0];
         }
 
-        public int Get()
+        public T Get()
         {
             if (_stack.Length == 0)
             {
                 throw new InvalidOperationException("StackArray empty");
             }
-            int[] arr = _stack;
-            _stack = new int[arr.Length - 1];
+            T[] arr = _stack;
+            _stack = new T[arr.Length - 1];
             for (int i = 1; i < arr.Length; i++)
             {
                 _stack[i - 1] = arr[i];

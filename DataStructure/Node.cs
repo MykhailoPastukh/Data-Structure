@@ -1,39 +1,39 @@
 ﻿namespace DataStructure
 {
-    public class Node
+    public class Node<T>
     {
-        private Node _next;
-        private Node _previous;
-        private int _item;
+        private Node<T> _next;
+        private Node<T> _previous;
+        private T _item;
         public Node()
         {
 
         }
-        public Node(int item)
+        public Node(T item)
         {
             _item = item;
         }
-        public int GetItem()
+        public T GetItem()
         {
             return _item;
         }
-        public void SetItem(int item)
+        public void SetItem(T item)
         {
             _item = item;
         }
-        public Node GetNext()
+        public Node<T> GetNext()
         {
             return _next;
         }
-        public void SetNext(Node next)
+        public void SetNext(Node<T> next)
         {
             _next = next;
         }
-        public Node GetPrevious()
+        public Node<T> GetPrevious()
         {
             return _previous;
         }
-        public void SetPrevious(Node previous)
+        public void SetPrevious(Node<T> previous)
         {
             _previous = previous;
         }

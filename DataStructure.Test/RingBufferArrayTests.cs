@@ -9,7 +9,7 @@ namespace DataStructure.Tests
         public void IsEmpty_EmptyRingBufferShouldReturnTrue()
         {
             // Arrange
-            RingBufferArray sut = new RingBufferArray(5);
+            RingBufferArray<int> sut = new RingBufferArray<int>(5);
             bool expected = true;
 
             // Act
@@ -25,7 +25,7 @@ namespace DataStructure.Tests
         public void Clear_ClearRingBufferWithSomeNumbersShouldWork()
         {
             // Arrange
-            RingBufferArray sut = new RingBufferArray(10);
+            RingBufferArray<int> sut = new RingBufferArray<int>(10);
             int expected = 0;
 
             // Act
@@ -43,7 +43,7 @@ namespace DataStructure.Tests
         public void Add_RingBuferShouldOverwriteWhenItFull()
         {
             // Arrange
-            RingBufferArray sut = new RingBufferArray(7);
+            RingBufferArray<int> sut = new RingBufferArray<int>(7);
             int expected = 1;
 
             // Act
@@ -61,7 +61,7 @@ namespace DataStructure.Tests
         public void Get_GetFromEmptyRingBufferShouldNotWork()
         {
             // Arrange
-            RingBufferArray sut = new RingBufferArray(10);
+            RingBufferArray<int> sut = new RingBufferArray<int>(10);
 
             // Act
             sut.Add(42);
@@ -75,7 +75,7 @@ namespace DataStructure.Tests
         public void Get_GetAllNumbersFromRingBufferShouldWork()
         {
             // Arrange
-            RingBufferArray sut = new RingBufferArray(10);
+            RingBufferArray<int> sut = new RingBufferArray<int>(10);
             int expected = 0;
 
             // Act
@@ -101,7 +101,7 @@ namespace DataStructure.Tests
             // Act
 
             // Assert
-            Assert.Throws<ArgumentException>(() => new RingBufferArray(-1));
+            Assert.Throws<ArgumentException>(() => new RingBufferArray<int>(-1));
         }
     }
 }

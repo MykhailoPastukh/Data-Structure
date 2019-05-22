@@ -1,9 +1,9 @@
 ﻿namespace DataStructure
 {
-    public interface IDataStructure
+    public interface IDataStructure<T>
     {
-        void Add(int number);
-        int Get();
+        void Add(T item);
+        T Get();
         void Clear();
         bool IsEmpty();
         int Size();
