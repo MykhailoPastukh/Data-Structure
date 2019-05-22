@@ -88,5 +88,52 @@ namespace DataStructure.Tests
             // Assert
             Assert.Throws<InvalidOperationException>(() => sut.Get());
         }
+
+        [Fact]
+        public void Indexer_IndexerGetAndSetShouldWork()
+        {
+            // Arrange 
+            QueueArray<double> sut = new QueueArray<double>();
+            double expected = 42.2;
+
+            // Act
+            for (int i = 0; i < 10; i++)
+            {
+                sut.Add(i);
+            }
+            sut[5] = 42.2;
+            double actual = sut[5];
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Indexer_GetFromWrongIndexShouldThrowExeption()
+        {
+            // Arrange
+            QueueArray<double> sut = new QueueArray<double>();
+            sut.Add(1);
+            sut.Add(2);
+
+            // Act
+
+            // Assert
+            Assert.Throws<IndexOutOfRangeException>(() => sut[5]);
+        }
+
+        [Fact]
+        public void Indexer_SetFromWrongIndexShouldThrowExeption()
+        {
+            // Arrange
+            QueueArray<double> sut = new QueueArray<double>();
+            sut.Add(1);
+            sut.Add(2);
+
+            // Act
+
+            // Assert
+            Assert.Throws<IndexOutOfRangeException>(() => sut[5] = 10);
+        }
     }
 }

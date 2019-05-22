@@ -19,6 +19,29 @@ namespace DataStructure
             _start = 0;
             _end = 0;
         }
+
+        public T this[int index]
+        {
+            get
+            {
+                int end = (_size == _ringBuffer.Length)?_size : _end - 1;
+                if (index >= _start && index < end)
+                {
+                    return _ringBuffer[index];
+                }
+                else throw new IndexOutOfRangeException();
+            }
+            set
+            {
+                int end = (_size == _ringBuffer.Length) ? _size : _end - 1;
+                if (index >= _start && index < end)
+                {
+                    _ringBuffer[index] = value;
+                }
+                else throw new IndexOutOfRangeException();
+            }
+        }
+
         public void Add(T item)
         {            
             _ringBuffer[_end] = item;

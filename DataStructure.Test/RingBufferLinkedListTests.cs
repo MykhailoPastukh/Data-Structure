@@ -118,5 +118,71 @@ namespace DataStructure.Tests
             // Assert
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void Indexer_IndexerGetAndSetShouldWork()
+        {
+            // Arrange 
+            RingBufferLinkedList<double> sut = new RingBufferLinkedList<double>(10);
+            double expected = 42.2;
+
+            // Act
+            for (int i = 0; i < 10; i++)
+            {
+                sut.Add(i);
+            }
+            sut[5] = 42.2;
+            double actual = sut[5];
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Indexer_IndexerGetAndSetFromEndShouldWork()
+        {
+            // Arrange 
+            RingBufferLinkedList<double> sut = new RingBufferLinkedList<double>(10);
+            double expected = 42.2;
+
+            // Act
+            for (int i = 0; i < 10; i++)
+            {
+                sut.Add(i);
+            }
+            sut[9] = 42.2;
+            double actual = sut[9];
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Indexer_GetFromWrongIndexShouldThrowExeption()
+        {
+            // Arrange
+            RingBufferLinkedList<double> sut = new RingBufferLinkedList<double>(10);
+            sut.Add(1);
+            sut.Add(2);
+
+            // Act
+
+            // Assert
+            Assert.Throws<IndexOutOfRangeException>(() => sut[5]);
+        }
+
+        [Fact]
+        public void Indexer_SetFromWrongIndexShouldThrowExeption()
+        {
+            // Arrange
+            RingBufferLinkedList<double> sut = new RingBufferLinkedList<double>(10);
+            sut.Add(1);
+            sut.Add(2);
+
+            // Act
+
+            // Assert
+            Assert.Throws<IndexOutOfRangeException>(() => sut[5] = 10);
+        }
     }
 }

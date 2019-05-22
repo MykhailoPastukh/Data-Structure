@@ -30,6 +30,43 @@ namespace DataStructure
             _end = _first.GetPrevious();
         }
 
+        public T this[int index]
+        {
+            get
+            {
+                if (index >= 0 && index < _count)
+                {
+                    if (index == _count - 1) return _end.GetItem();
+
+                    Node<T> result = _first;
+                    for (int i = 0; i < index; i++)
+                    {
+                        result = result.GetNext();
+                    }
+                    return result.GetItem();
+                }
+                else throw new IndexOutOfRangeException();
+            }
+            set
+            {
+                if (index == _count - 1)
+                {
+                    _end.SetItem(value);
+                    return;
+                }
+                if (index >= 0 && index < _count)
+                {
+                    Node<T> result = _first;
+                    for (int i = 0; i < index; i++)
+                    {
+                        result = result.GetNext();
+                    }
+                    result.SetItem(value);
+                }
+                else throw new IndexOutOfRangeException();
+            }
+        }
+
         public void Add(T item)
         {
             if (_count < _size)
