@@ -2,14 +2,14 @@
 
 namespace DataStructure
 {
-    public class StackLinkedList : IStack
+    public class StackLinkedList<T> : IStack<T>
     {
-        private Node _first;
+        private Node<T> _first;
         private int _size;
 
-        public void Add(int item)
+        public void Add(T item)
         {
-            Node node = new Node(item);
+            Node<T> node = new Node<T>(item);
             if (_size == 0)
             {
                 _first = node;
@@ -23,13 +23,13 @@ namespace DataStructure
             _size++;
         }
 
-        public int Get()
+        public T Get()
         {
             if (_size == 0)
             {
                 throw new InvalidOperationException("Stack empty");
             }
-            int result = _first.GetItem();
+            T result = _first.GetItem();
             if (_size == 1)
             {
                 Clear();

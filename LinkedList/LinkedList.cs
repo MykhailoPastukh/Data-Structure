@@ -2,14 +2,14 @@
 
 namespace DataStructure
 {
-    public class LinkedList : ILinkedList
+    public class LinkedList<T> : ILinkedList<T>
     {
-        private Node _first;
-        private Node _last;
+        private Node<T> _first;
+        private Node<T> _last;
         private int _size;
-        public void Add(int item)
+        public void Add(T item)
         {
-            Node node = new Node(item);
+            Node<T> node = new Node<T>(item);
             if (_size == 0)
             {
                 _first = node;
@@ -31,13 +31,13 @@ namespace DataStructure
             _size = 0;
         }
 
-        public int Get()
+        public T Get()
         {
             if (_size == 0)
             {
                 throw new InvalidOperationException("Linked List Empty");
             }
-            Node result = _last;
+            Node<T> result = _last;
             _last = _last.GetPrevious();
             if (_size == 1)
             {
@@ -51,13 +51,13 @@ namespace DataStructure
             return result.GetItem();
         }
 
-        public int GetFirst()
+        public T GetFirst()
         {
             if (_size == 0)
             {
                 throw new InvalidOperationException("Linked List Empty");
             }
-            Node result = _first;
+            Node<T> result = _first;
             _first = _first.GetNext();
             if (_size == 1)
             {

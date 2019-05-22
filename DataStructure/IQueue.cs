@@ -1,6 +1,6 @@
 ﻿namespace DataStructure
 {
-    public interface IQueue : IDataStructure
+    public interface IQueue<T> : IDataStructure<T>
     {
 
     }

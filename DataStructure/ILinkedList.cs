@@ -1,7 +1,7 @@
 ﻿namespace DataStructure
 {
-    public interface ILinkedList : IDataStructure
+    public interface ILinkedList<T> : IDataStructure<T>
     {
-        int GetFirst();
+        T GetFirst();
     }
 }

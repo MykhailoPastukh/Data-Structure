@@ -9,7 +9,7 @@ namespace DataStructure.Tests
         public void Size_EmptyLinkedListShouldReturnZero()
         {
             // Arrange
-            LinkedList sut = new LinkedList();
+            LinkedList<int> sut = new LinkedList<int>();
             int expected = 0;
 
             // Act
@@ -23,7 +23,7 @@ namespace DataStructure.Tests
         public void IsEmpty_EmptyLinkedListShouldReturnTrue()
         {
             // Arrange
-            LinkedList sut = new LinkedList();
+            LinkedList<int> sut = new LinkedList<int>();
             bool expected = true;
 
             // Act
@@ -40,7 +40,7 @@ namespace DataStructure.Tests
         public void Add_AddNumbersToLinkedListShouldWork(int count)
         {
             // Arrange
-            LinkedList sut = new LinkedList();
+            LinkedList<int> sut = new LinkedList<int>();
             int expected = count;
 
             // Act
@@ -61,7 +61,7 @@ namespace DataStructure.Tests
         public void Get_SetAndGetNumberShouldBeTheSame(int count)
         {
             // Arrange
-            LinkedList sut = new LinkedList();
+            LinkedList<int> sut = new LinkedList<int>();
             int expected = 42;
 
             // Act
@@ -84,7 +84,7 @@ namespace DataStructure.Tests
         public void GetFirst_GetNumbersShouldWork()
         {
             // Arrange
-            LinkedList sut = new LinkedList();
+            LinkedList<int> sut = new LinkedList<int>();
             int expected = 99;
 
             // Act
@@ -106,7 +106,7 @@ namespace DataStructure.Tests
         public void Clear_ClearLinkedListWithTwoNumbersShouldWork()
         {
             // Arrange
-            LinkedList sut = new LinkedList();
+            LinkedList<int> sut = new LinkedList<int>();
             bool expected = true;
 
             // Act
@@ -123,7 +123,7 @@ namespace DataStructure.Tests
         public void Get_GetFromEmptyLinkedListShouldNotWork()
         {
             // Arrange
-            LinkedList sut = new LinkedList();
+            LinkedList<int> sut = new LinkedList<int>();
 
             // Act
 
@@ -135,7 +135,7 @@ namespace DataStructure.Tests
         public void Get_GetFirstFromEmptyLinkedListShouldNotWork()
         {
             // Arrange
-            LinkedList sut = new LinkedList();
+            LinkedList<int> sut = new LinkedList<int>();
 
             // Act
 

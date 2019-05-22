@@ -1,6 +1,6 @@
 ﻿namespace DataStructure
 {
-    public interface IStack : IDataStructure
+    public interface IStack<T> : IDataStructure<T>
     {
 
     }

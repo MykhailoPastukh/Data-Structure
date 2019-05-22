@@ -2,15 +2,15 @@
 
 namespace DataStructure
 {
-    public class QueueLinkedList : IQueue
+    public class QueueLinkedList<T> : IQueue<T>
     {
-        private Node _first;
-        private Node _last;
+        private Node<T> _first;
+        private Node<T> _last;
         private int _size;
 
-        public void Add(int item)
+        public void Add(T item)
         {
-            Node node = new Node(item);
+            Node<T> node = new Node<T>(item);
             node.SetItem(item);
             if (_size == 0)
             {
@@ -26,13 +26,13 @@ namespace DataStructure
             _size++;
         }
 
-        public int Get()
+        public T Get()
         {
             if (_size == 0)
             {
                 throw new InvalidOperationException("Queue empty");
             }
-            Node result = _last;
+            Node<T> result = _last;
             _last = _last.GetPrevious();
             if (_size != 1)
             {

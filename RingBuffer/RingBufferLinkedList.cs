@@ -2,12 +2,12 @@
 
 namespace DataStructure
 {
-    public class RingBufferLinkedList : IRingBuffer
+    public class RingBufferLinkedList<T> : IRingBuffer<T>
     {
         private int _size;
         private int _count;
-        private Node _first;
-        private Node _end;
+        private Node<T> _first;
+        private Node<T> _end;
 
         public RingBufferLinkedList(int length)
         {
@@ -15,12 +15,12 @@ namespace DataStructure
             {
                 throw new ArgumentException();
             }
-            _first = new Node(0);
+            _first = new Node<T>();
 
-            Node currentNode = _first;
+            Node<T> currentNode = _first;
             for (int i = 0; i < length-1; i++)
             {
-                currentNode.SetNext(new Node());
+                currentNode.SetNext(new Node<T>());
                 currentNode.GetNext().SetPrevious(currentNode);
                 currentNode = currentNode.GetNext();
             }
@@ -30,7 +30,7 @@ namespace DataStructure
             _end = _first.GetPrevious();
         }
 
-        public void Add(int item)
+        public void Add(T item)
         {
             if (_count < _size)
             {
@@ -50,14 +50,13 @@ namespace DataStructure
             _count = 0;
         }
 
-        public int Get()
+        public T Get()
         {
             if(_count == 0)
             {
                 throw new InvalidOperationException("Ring Buffer empty");
             }
-            int result = _first.GetItem();
-            _first.SetItem(0);
+            T result = _first.GetItem();
             _first = _first.GetNext();
             _count--;
             return result;
@@ -75,11 +74,11 @@ namespace DataStructure
 
         public void Expand(int length)
         {
-            Node currentNode = _end;
-            Node lastNode = _end.GetNext();
+            Node<T> currentNode = _end;
+            Node<T> lastNode = _end.GetNext();
             for (int i = 0; i < length; i++)
             {
-                currentNode.SetNext(new Node());
+                currentNode.SetNext(new Node<T>());
                 currentNode.GetNext().SetPrevious(currentNode);
                 currentNode.GetNext().SetNext(lastNode);
                 currentNode = currentNode.GetNext();

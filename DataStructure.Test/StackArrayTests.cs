@@ -12,7 +12,7 @@ namespace DataStructure.Tests
         public void Add_AddNumbersToStackArrayShouldWork(int count)
         {
             // Arrange
-            StackArray sut = new StackArray();
+            StackArray<int> sut = new StackArray<int>();
             int expected = count;
 
             // Act
@@ -33,7 +33,7 @@ namespace DataStructure.Tests
         public void Get_SetAndGetNumberShouldBeTheSame(int count)
         {
             // Arrange
-            StackArray sut = new StackArray();
+            StackArray<int> sut = new StackArray<int>();
             int expected = 17;
 
             // Act
@@ -56,7 +56,7 @@ namespace DataStructure.Tests
         public void Get_GetFromEmptyStack()
         {
             // Arrange
-            StackArray sut = new StackArray();
+            StackArray<int> sut = new StackArray<int>();
 
             // Act 
 
@@ -68,7 +68,7 @@ namespace DataStructure.Tests
         public void Clear_ClearStackWithSomeElementsShouldWork()
         {
             // Arrange
-            StackArray sut = new StackArray();
+            StackArray<int> sut = new StackArray<int>();
             int expected = 0;
 
             // Act
@@ -86,7 +86,7 @@ namespace DataStructure.Tests
         public void IsEmpty_EmptyStackArrayShouldReturnTrue()
         {
             // Arrange
-            StackArray sut = new StackArray();
+            StackArray<int> sut = new StackArray<int>();
             bool expected = true;
 
             // Act            

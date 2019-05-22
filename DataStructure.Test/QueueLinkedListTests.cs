@@ -10,7 +10,7 @@ namespace DataStructure.Tests
         public void IsEmpty_EmptyQueueShouldReturnTrue()
         {
             // Arrange
-            QueueLinkedList sut = new QueueLinkedList();
+            QueueLinkedList<int> sut = new QueueLinkedList<int>();
             bool expected = true;
 
             // Act
@@ -24,7 +24,7 @@ namespace DataStructure.Tests
         public void Clear_ClearQueueWithSomeNumbersShoulWork()
         {
             // Arrange
-            QueueLinkedList sut = new QueueLinkedList();
+            QueueLinkedList<int> sut = new QueueLinkedList<int>();
             int expected = 0;
 
             // Act
@@ -44,7 +44,7 @@ namespace DataStructure.Tests
         public void Add_AddManyNumbersToQueueShouldWork(int count)
         {
             // Arrange
-            QueueLinkedList sut = new QueueLinkedList();
+            QueueLinkedList<int> sut = new QueueLinkedList<int>();
             int expected = count;
 
             // Act
@@ -62,7 +62,7 @@ namespace DataStructure.Tests
         public void Get_GetNumbersFromQueueShouldWork()
         {
             // Arrange
-            QueueLinkedList sut = new QueueLinkedList();
+            QueueLinkedList<int> sut = new QueueLinkedList<int>();
 
             // Act
             for (int i = 0; i < 100; i++)
@@ -81,7 +81,7 @@ namespace DataStructure.Tests
         public void Get_GetFromEmptyQueueShouldThrowExeption()
         {
             // Arrange
-            QueueLinkedList sut = new QueueLinkedList();
+            QueueLinkedList<int> sut = new QueueLinkedList<int>();
 
             // Act
 
