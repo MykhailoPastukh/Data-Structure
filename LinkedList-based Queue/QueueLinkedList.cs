@@ -67,7 +67,7 @@ namespace DataStructure
         {
             if (_size == 0)
             {
-                throw new InvalidOperationException("Queue empty");
+                throw new DataStructureIsEmptyOnReadExeption("QueueLinkedList");
             }
             Node<T> result = _last;
             _last = _last.GetPrevious();

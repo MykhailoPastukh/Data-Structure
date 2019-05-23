@@ -58,7 +58,7 @@ namespace DataStructure
         {
             if (_queue.Length == 0)
             {
-                throw new InvalidOperationException("QueueArray empty");
+                throw new DataStructureIsEmptyOnReadExeption("QueueArray");
             }
             T[] arr = _queue;
             _queue = new T[arr.Length - 1];

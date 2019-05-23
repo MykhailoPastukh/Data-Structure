@@ -68,7 +68,7 @@ namespace DataStructure.Tests
             sut.Get();
 
             // Assert
-            Assert.Throws<InvalidOperationException>(()=>sut.Get());
+            Assert.Throws<DataStructureIsEmptyOnReadExeption>(()=>sut.Get());
         }
 
         [Fact]
@@ -116,8 +116,15 @@ namespace DataStructure.Tests
             {
                 sut.Add(i);
             }
-            sut[5] = 42.2;
-            double actual = sut[5];
+            for (int i = 0; i < 5; i++)
+            {
+                sut.Get();
+            }
+            sut.Add(2);
+            sut.Add(5);
+            sut.Add(11);
+            sut[7] = 42.2;
+            double actual = sut[7];
 
             // Assert
             Assert.Equal(expected, actual);

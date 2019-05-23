@@ -57,7 +57,7 @@ namespace DataStructure
         {
             if (_size == 0)
             {
-                throw new InvalidOperationException("Stack empty");
+                throw new DataStructureIsEmptyOnReadExeption("StackLinkedList");
             }
             T result = _first.GetItem();
             if (_size == 1)

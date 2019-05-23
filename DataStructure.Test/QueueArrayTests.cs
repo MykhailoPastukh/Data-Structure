@@ -86,7 +86,7 @@ namespace DataStructure.Tests
             // Act
 
             // Assert
-            Assert.Throws<InvalidOperationException>(() => sut.Get());
+            Assert.Throws<DataStructureIsEmptyOnReadExeption>(() => sut.Get());
         }
 
         [Fact]

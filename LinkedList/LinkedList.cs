@@ -73,7 +73,7 @@ namespace DataStructure
         {
             if (_size == 0)
             {
-                throw new InvalidOperationException("Linked List Empty");
+                throw new DataStructureIsEmptyOnReadExeption("Linked List");
             }
             Node<T> result = _last;
             _last = _last.GetPrevious();
@@ -93,7 +93,7 @@ namespace DataStructure
         {
             if (_size == 0)
             {
-                throw new InvalidOperationException("Linked List Empty");
+                throw new DataStructureIsEmptyOnReadExeption("Linked List");
             }
             Node<T> result = _first;
             _first = _first.GetNext();

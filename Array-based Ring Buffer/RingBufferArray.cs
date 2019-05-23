@@ -24,18 +24,26 @@ namespace DataStructure
         {
             get
             {
-                int end = (_size == _ringBuffer.Length)?_size : _end - 1;
-                if (index >= _start && index < end)
+                if (index >= 0 && index < _size)
                 {
+                    index += _start;
+                    if(index >= _size)
+                    {
+                        index = _size-1;
+                    }
                     return _ringBuffer[index];
                 }
                 else throw new IndexOutOfRangeException();
             }
             set
             {
-                int end = (_size == _ringBuffer.Length) ? _size : _end - 1;
-                if (index >= _start && index < end)
+                if (index >= 0 && index < _size)
                 {
+                    index += _start;
+                    if (index >= _size)
+                    {
+                        index = _size - 1;
+                    }
                     _ringBuffer[index] = value;
                 }
                 else throw new IndexOutOfRangeException();
@@ -72,7 +80,7 @@ namespace DataStructure
         {
             if (IsEmpty())
             {
-                throw new InvalidOperationException("RingBufferArray empty");
+                throw new DataStructureIsEmptyOnReadExeption("RingBufferArray");
             }
             else
             {

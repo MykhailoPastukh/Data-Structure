@@ -35,7 +35,7 @@ namespace DataStructure.Tests
             }
 
             // Assert
-            Assert.Throws<InvalidOperationException>(()=>sut.Add(6));
+            Assert.Throws<DataStructureIsFullOnInsertExeption>(()=>sut.Add(6));
         }
 
         [Fact]
@@ -66,7 +66,7 @@ namespace DataStructure.Tests
             // Act
 
             // Assert
-            Assert.Throws<InvalidOperationException>(() => sut.Get());
+            Assert.Throws<DataStructureIsEmptyOnReadExeption>(() => sut.Get());
         }
 
         [Fact]

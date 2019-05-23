@@ -77,7 +77,7 @@ namespace DataStructure
             }
             else
             {
-                throw new InvalidOperationException("Ring buffer full");
+                throw new DataStructureIsFullOnInsertExeption("RingBufferLinkedList");
             }
         }
 
@@ -91,7 +91,7 @@ namespace DataStructure
         {
             if(_count == 0)
             {
-                throw new InvalidOperationException("Ring Buffer empty");
+                throw new DataStructureIsEmptyOnReadExeption("RingBufferLinkedList");
             }
             T result = _first.GetItem();
             _first = _first.GetNext();

@@ -59,7 +59,7 @@ namespace DataStructure
         {
             if (_stack.Length == 0)
             {
-                throw new InvalidOperationException("StackArray empty");
+                throw new DataStructureIsEmptyOnReadExeption("StackArray");
             }
             T[] arr = _stack;
             _stack = new T[arr.Length - 1];
