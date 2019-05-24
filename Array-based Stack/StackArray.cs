@@ -19,7 +19,7 @@ namespace DataStructure
                 {
                     return _stack[index];
                 }
-                else throw new IndexOutOfRangeException();
+                throw new IndexOutOfRangeException();
             }
             set
             {

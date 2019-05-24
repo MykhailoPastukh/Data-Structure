@@ -19,7 +19,7 @@ namespace DataStructure
                 {
                     return _queue[index];
                 }
-                else throw new IndexOutOfRangeException();
+                throw new IndexOutOfRangeException();
             }
             set {
                 if (index >= 0 && index < _queue.Length)

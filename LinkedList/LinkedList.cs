@@ -1,20 +1,9 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace DataStructure
 {
     public class LinkedList<T> : ILinkedList<T>
     {
-        public delegate void OnAddItem(string message);
-        public event OnAddItem onAddItem;
-
-        public delegate void OnRemoveItem(string message);
-        public event OnRemoveItem onRemoveItem;
-
-        public delegate void OnContainerEmpty(string message);
-        public event OnContainerEmpty onContainerEmpty;
-
         private Node<T> _first;
         private Node<T> _last;
         private int _size;
@@ -34,7 +23,7 @@ namespace DataStructure
                     }
                     return result.GetItem();
                 }
-                else throw new IndexOutOfRangeException();
+                throw new IndexOutOfRangeException();
             }
             set
             {
@@ -58,7 +47,6 @@ namespace DataStructure
 
         public void Add(T item)
         {
-            onAddItem?.Invoke("Add element to LinkedList");
             Node<T> node = new Node<T>(item);
             if (_size == 0)
             {
@@ -79,8 +67,6 @@ namespace DataStructure
             _first = null;
             _last = null;
             _size = 0;
-
-            onContainerEmpty?.Invoke("LinkedList empty");
         }
 
         public T Get()
@@ -89,9 +75,6 @@ namespace DataStructure
             {
                 throw new DataStructureIsEmptyOnReadExeption("Linked List");
             }
-
-            onRemoveItem?.Invoke("Remove item of linked list");
-
             Node<T> result = _last;
             _last = _last.GetPrevious();
             if (_size == 1)

@@ -33,7 +33,7 @@ namespace DataStructure
                     }
                     return _ringBuffer[index];
                 }
-                else throw new IndexOutOfRangeException();
+                throw new IndexOutOfRangeException();
             }
             set
             {

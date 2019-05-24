@@ -45,7 +45,7 @@ namespace DataStructure
                     }
                     return result.GetItem();
                 }
-                else throw new IndexOutOfRangeException();
+                throw new IndexOutOfRangeException();
             }
             set
             {
