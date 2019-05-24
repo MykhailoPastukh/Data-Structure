@@ -6,6 +6,21 @@ namespace DataStructure.Tests
     public class LinkedListTests
     {
         [Fact]
+        public void GetEnumerator_EnumeratorShouldWork()
+        {
+            // Arrange
+            LinkedList<int> sut = new LinkedList<int>();
+            for (int i = 0; i < 10; i++)
+            {
+                sut.Add(i);
+            }
+
+            // Act
+            
+
+        }
+
+        [Fact]
         public void Size_EmptyLinkedListShouldReturnZero()
         {
             // Arrange
