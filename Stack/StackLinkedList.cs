@@ -2,7 +2,7 @@
 
 namespace DataStructure
 {
-    public class StackLinkedList<T> : IStack<T>
+    public class StackLinkedList<T> : DataStructure<T>, IStack<T>
     {
         private Node<T> _first;
         private int _size;
@@ -37,7 +37,7 @@ namespace DataStructure
             }
         }
 
-        public void Add(T item)
+        public override void Add(T item)
         {
             Node<T> node = new Node<T>(item);
             if (_size == 0)
@@ -51,9 +51,10 @@ namespace DataStructure
                 _first = node;
             }
             _size++;
+            OnAddElement(new DataStructEventArgs<T>(item));
         }
 
-        public T Get()
+        public override T Get()
         {
             if (_size == 0)
             {
@@ -69,21 +70,23 @@ namespace DataStructure
                 _first = _first.GetNext();
                 _size--;
             }
+            OnRemoveElement(new DataStructEventArgs<T>(result));
             return result;
         }
 
-        public void Clear()
+        public override void Clear()
         {
             _first = null;
             _size = 0;
+            OnContainerEmpty(new DataStructEventArgs<T>());
         }
 
-        public bool IsEmpty()
+        public override bool IsEmpty()
         {
             return _size == 0;
         }
 
-        public int Size()
+        public override int Size()
         {
             return _size;
         }
