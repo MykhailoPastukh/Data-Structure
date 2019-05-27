@@ -11,6 +11,26 @@ namespace DataStructure
             _stack = new T[0];
         }
 
+        public T this[int index]
+        {
+            get
+            {
+                if (index >= 0 && index < _stack.Length)
+                {
+                    return _stack[index];
+                }
+                throw new IndexOutOfRangeException();
+            }
+            set
+            {
+                if (index >= 0 && index < _stack.Length)
+                {
+                    _stack[index] = value;
+                }
+                else throw new IndexOutOfRangeException();
+            }
+        }
+
         public void Add(T item)
         {
             if (_stack.Length == 0)
@@ -39,7 +59,7 @@ namespace DataStructure
         {
             if (_stack.Length == 0)
             {
-                throw new InvalidOperationException("StackArray empty");
+                throw new DataStructureIsEmptyOnReadExeption("StackArray");
             }
             T[] arr = _stack;
             _stack = new T[arr.Length - 1];

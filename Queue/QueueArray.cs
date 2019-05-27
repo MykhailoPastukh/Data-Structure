@@ -11,6 +11,25 @@ namespace DataStructure
         {
             _queue = new T[0];
         }
+
+        public T this[int index]
+        {
+            get {
+                if (index >= 0 && index < _queue.Length)
+                {
+                    return _queue[index];
+                }
+                throw new IndexOutOfRangeException();
+            }
+            set {
+                if (index >= 0 && index < _queue.Length)
+                {
+                    _queue[index] = value;
+                }
+                else throw new IndexOutOfRangeException();
+            }
+        }
+
         public void Add(T item)
         {
             if (_queue.Length == 0)
@@ -39,7 +58,7 @@ namespace DataStructure
         {
             if (_queue.Length == 0)
             {
-                throw new InvalidOperationException("QueueArray empty");
+                throw new DataStructureIsEmptyOnReadExeption("QueueArray");
             }
             T[] arr = _queue;
             _queue = new T[arr.Length - 1];

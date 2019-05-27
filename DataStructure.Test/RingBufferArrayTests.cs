@@ -68,7 +68,7 @@ namespace DataStructure.Tests
             sut.Get();
 
             // Assert
-            Assert.Throws<InvalidOperationException>(()=>sut.Get());
+            Assert.Throws<DataStructureIsEmptyOnReadExeption>(()=>sut.Get());
         }
 
         [Fact]
@@ -102,6 +102,60 @@ namespace DataStructure.Tests
 
             // Assert
             Assert.Throws<ArgumentException>(() => new RingBufferArray<int>(-1));
+        }
+
+        [Fact]
+        public void Indexer_IndexerGetAndSetShouldWork()
+        {
+            // Arrange 
+            RingBufferArray<double> sut = new RingBufferArray<double>(10);
+            double expected = 42.2;
+
+            // Act
+            for (int i = 0; i < 10; i++)
+            {
+                sut.Add(i);
+            }
+            for (int i = 0; i < 5; i++)
+            {
+                sut.Get();
+            }
+            sut.Add(2);
+            sut.Add(5);
+            sut.Add(11);
+            sut[7] = 42.2;
+            double actual = sut[7];
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Indexer_GetFromWrongIndexShouldThrowExeption()
+        {
+            // Arrange
+            RingBufferArray<double> sut = new RingBufferArray<double>(10);
+            sut.Add(1);
+            sut.Add(2);
+
+            // Act
+
+            // Assert
+            Assert.Throws<IndexOutOfRangeException>(() => sut[5]);
+        }
+
+        [Fact]
+        public void Indexer_SetFromWrongIndexShouldThrowExeption()
+        {
+            // Arrange
+            RingBufferArray<double> sut = new RingBufferArray<double>(10);
+            sut.Add(1);
+            sut.Add(2);
+
+            // Act
+
+            // Assert
+            Assert.Throws<IndexOutOfRangeException>(() => sut[5] = 10);
         }
     }
 }

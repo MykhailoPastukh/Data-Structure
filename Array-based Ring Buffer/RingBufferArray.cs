@@ -19,6 +19,37 @@ namespace DataStructure
             _start = 0;
             _end = 0;
         }
+
+        public T this[int index]
+        {
+            get
+            {
+                if (index >= 0 && index < _size)
+                {
+                    index += _start;
+                    if(index >= _size)
+                    {
+                        index = _size-1;
+                    }
+                    return _ringBuffer[index];
+                }
+                throw new IndexOutOfRangeException();
+            }
+            set
+            {
+                if (index >= 0 && index < _size)
+                {
+                    index += _start;
+                    if (index >= _size)
+                    {
+                        index = _size - 1;
+                    }
+                    _ringBuffer[index] = value;
+                }
+                else throw new IndexOutOfRangeException();
+            }
+        }
+
         public void Add(T item)
         {            
             _ringBuffer[_end] = item;
@@ -49,7 +80,7 @@ namespace DataStructure
         {
             if (IsEmpty())
             {
-                throw new InvalidOperationException("RingBufferArray empty");
+                throw new DataStructureIsEmptyOnReadExeption("RingBufferArray");
             }
             else
             {

@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataStructureIsEmptyOnReadExeption.cs" />
+    <Compile Include="DataStructureIsFullOnInsertExeption.cs" />
     <Compile Include="IDataStructure.cs" />
     <Compile Include="ILinkedList.cs" />
     <Compile Include="IQueue.cs" />

@@ -7,6 +7,36 @@ namespace DataStructure
         private Node<T> _first;
         private int _size;
 
+        public T this[int index]
+        {
+            get
+            {
+                if (index >= 0 && index < _size)
+                {
+                    Node<T> result = _first;
+                    for (int i = 0; i < index; i++)
+                    {
+                        result = result.GetNext();
+                    }
+                    return result.GetItem();
+                }
+                throw new IndexOutOfRangeException();
+            }
+            set
+            {
+                if (index >= 0 && index < _size)
+                {
+                    Node<T> result = _first;
+                    for (int i = 0; i < index; i++)
+                    {
+                        result = result.GetNext();
+                    }
+                    result.SetItem(value);
+                }
+                else throw new IndexOutOfRangeException();
+            }
+        }
+
         public void Add(T item)
         {
             Node<T> node = new Node<T>(item);
@@ -27,7 +57,7 @@ namespace DataStructure
         {
             if (_size == 0)
             {
-                throw new InvalidOperationException("Stack empty");
+                throw new DataStructureIsEmptyOnReadExeption("StackLinkedList");
             }
             T result = _first.GetItem();
             if (_size == 1)
