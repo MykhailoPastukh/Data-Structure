@@ -2,7 +2,7 @@
 
 namespace DataStructure
 {
-    public class RingBufferArray<T> : IRingBuffer<T>
+    public class RingBufferArray<T> : DataStructure<T>, IRingBuffer<T>
     {
         private T[] _ringBuffer;
         private int _start;
@@ -50,7 +50,7 @@ namespace DataStructure
             }
         }
 
-        public void Add(T item)
+        public override void Add(T item)
         {            
             _ringBuffer[_end] = item;
             _size++;
@@ -67,16 +67,18 @@ namespace DataStructure
             {
                 _size = _ringBuffer.Length;
             }
+            OnAddElement(new DataStructEventArgs<T>(item));
         }
 
-        public void Clear()
+        public override void Clear()
         {          
             _start = 0;
             _end = 0;
             _size = 0;
+            OnContainerEmpty(new DataStructEventArgs<T>());
         }
 
-        public T Get()
+        public override T Get()
         {
             if (IsEmpty())
             {
@@ -89,18 +91,20 @@ namespace DataStructure
                 if (_start>_ringBuffer.Length-1)
                 {
                     _start = 0;
+                    OnRemoveElement(new DataStructEventArgs<T>(_ringBuffer[_ringBuffer.Length - 1]));
                     return _ringBuffer[_ringBuffer.Length - 1];
                 }
+                OnRemoveElement(new DataStructEventArgs<T>(_ringBuffer[_start - 1]));
                 return _ringBuffer[_start-1];
             }
         }
 
-        public bool IsEmpty()
+        public override bool IsEmpty()
         {
             return _size == 0;
         }
 
-        public int Size()
+        public override int Size()
         {
             return _size;
         }
