@@ -2,7 +2,7 @@
 
 namespace DataStructure
 {
-    public class StackArray<T> : IStack<T>
+    public class StackArray<T> : DataStructure<T>, IStack<T>
     {
         private T[] _stack;
 
@@ -31,7 +31,7 @@ namespace DataStructure
             }
         }
 
-        public void Add(T item)
+        public override void Add(T item)
         {
             if (_stack.Length == 0)
             {
@@ -48,14 +48,16 @@ namespace DataStructure
                     _stack[i + 1] = arr[i];
                 }
             }
+            OnAddElement(new DataStructEventArgs<T>(item));
         }
 
-        public void Clear()
+        public override void Clear()
         {
             _stack = new T[0];
+            OnContainerEmpty(new DataStructEventArgs<T>());
         }
 
-        public T Get()
+        public override T Get()
         {
             if (_stack.Length == 0)
             {
@@ -67,15 +69,16 @@ namespace DataStructure
             {
                 _stack[i - 1] = arr[i];
             }
+            OnRemoveElement(new DataStructEventArgs<T>(arr[0]));
             return arr[0];
         }
 
-        public bool IsEmpty()
+        public override bool IsEmpty()
         {
             return _stack.Length == 0;
         }
 
-        public int Size()
+        public override int Size()
         {
             return _stack.Length;
         }

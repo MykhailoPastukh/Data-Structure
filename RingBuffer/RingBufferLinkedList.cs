@@ -2,7 +2,7 @@
 
 namespace DataStructure
 {
-    public class RingBufferLinkedList<T> : IRingBuffer<T>
+    public class RingBufferLinkedList<T> : DataStructure<T>, IRingBuffer<T>
     {
         private int _size;
         private int _count;
@@ -67,27 +67,30 @@ namespace DataStructure
             }
         }
 
-        public void Add(T item)
+        public override void Add(T item)
         {
             if (_count < _size)
             {
                 _end = _end.GetNext();
                 _end.SetItem(item);
                 _count++;
+                OnAddElement(new DataStructEventArgs<T>(item));
             }
             else
             {
+                OnContainerFull(new DataStructEventArgs<T>(item));
                 throw new DataStructureIsFullOnInsertExeption("RingBufferLinkedList");
             }
         }
 
-        public void Clear()
+        public override void Clear()
         {
             _end = _first.GetPrevious();
             _count = 0;
+            OnContainerEmpty(new DataStructEventArgs<T>());
         }
 
-        public T Get()
+        public override T Get()
         {
             if(_count == 0)
             {
@@ -96,15 +99,16 @@ namespace DataStructure
             T result = _first.GetItem();
             _first = _first.GetNext();
             _count--;
+            OnRemoveElement(new DataStructEventArgs<T>(result));
             return result;
         }
 
-        public bool IsEmpty()
+        public override bool IsEmpty()
         {
              return _count == 0;         
         }
 
-        public int Size()
+        public override int Size()
         {
             return _count;
         }

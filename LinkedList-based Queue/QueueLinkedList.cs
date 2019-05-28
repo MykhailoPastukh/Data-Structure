@@ -2,7 +2,7 @@
 
 namespace DataStructure
 {
-    public class QueueLinkedList<T> : IQueue<T>
+    public class QueueLinkedList<T> : DataStructure<T>, IQueue<T>
     {
         private Node<T> _first;
         private Node<T> _last;
@@ -45,7 +45,7 @@ namespace DataStructure
             }
         }
 
-        public void Add(T item)
+        public override void Add(T item)
         {
             Node<T> node = new Node<T>(item);
             node.SetItem(item);
@@ -60,10 +60,11 @@ namespace DataStructure
                 node.SetNext(_first);
                 _first = node;
             }
+            OnAddElement(new DataStructEventArgs<T>(node.GetItem()));
             _size++;
         }
 
-        public T Get()
+        public override T Get()
         {
             if (_size == 0)
             {
@@ -80,22 +81,24 @@ namespace DataStructure
             {
                 Clear();
             }
+            OnRemoveElement(new DataStructEventArgs<T>(result.GetItem()));
             return result.GetItem();
         }
 
-        public void Clear()
+        public override void Clear()
         {
             _first = null;
             _last = null;
             _size = 0;
+            OnContainerEmpty(new DataStructEventArgs<T>());
         }
 
-        public bool IsEmpty()
+        public override bool IsEmpty()
         {
             return _size == 0;
         }
 
-        public int Size()
+        public override int Size()
         {
             return _size;
         }

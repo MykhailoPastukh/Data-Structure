@@ -2,7 +2,7 @@
 
 namespace DataStructure
 {
-    public class LinkedList<T> : ILinkedList<T>
+    public class LinkedList<T> : DataStructure<T>, ILinkedList<T>
     {
         private Node<T> _first;
         private Node<T> _last;
@@ -45,7 +45,7 @@ namespace DataStructure
             }
         }
 
-        public void Add(T item)
+        public override void Add(T item)
         {
             Node<T> node = new Node<T>(item);
             if (_size == 0)
@@ -60,16 +60,18 @@ namespace DataStructure
                 _last = node;
             }
             _size++;
+            OnAddElement(new DataStructEventArgs<T>(node.GetItem()));         
         }
 
-        public void Clear()
+        public override void Clear()
         {
             _first = null;
             _last = null;
             _size = 0;
+            OnContainerEmpty(new DataStructEventArgs<T>());
         }
 
-        public T Get()
+        public override T Get()
         {
             if (_size == 0)
             {
@@ -86,6 +88,7 @@ namespace DataStructure
                 _last.SetNext(null);
                 _size--;
             }
+            OnRemoveElement(new DataStructEventArgs<T>(result.GetItem()));
             return result.GetItem();
         }
 
@@ -106,15 +109,16 @@ namespace DataStructure
                 _first.SetPrevious(null);
                 _size--;
             }
+            OnRemoveElement(new DataStructEventArgs<T>(result.GetItem()));
             return result.GetItem();
         }
 
-        public bool IsEmpty()
+        public override bool IsEmpty()
         {
             return _size == 0;   
         }
 
-        public int Size()
+        public override int Size()
         {
             return _size;
         }

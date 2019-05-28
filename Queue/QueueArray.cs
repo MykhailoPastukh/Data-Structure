@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace DataStructure
 {
-    public class QueueArray<T> : IQueue<T>
+    public class QueueArray<T> : DataStructure<T>, IQueue<T>
     {
         private T[] _queue;
 
@@ -30,7 +30,7 @@ namespace DataStructure
             }
         }
 
-        public void Add(T item)
+        public override void Add(T item)
         {
             if (_queue.Length == 0)
             {
@@ -47,14 +47,16 @@ namespace DataStructure
                     _queue[i + 1] = arr[i];
                 }
             }
+            OnAddElement(new DataStructEventArgs<T>(item));
         }
 
-        public void Clear()
+        public override void Clear()
         {
             _queue = new T[0];
+            OnContainerEmpty(new DataStructEventArgs<T>());
         }
 
-        public T Get()
+        public override T Get()
         {
             if (_queue.Length == 0)
             {
@@ -66,15 +68,16 @@ namespace DataStructure
             {
                 _queue[i] = arr[i];
             }
+            OnRemoveElement(new DataStructEventArgs<T>(arr.Last()));
             return arr.Last();
         }
 
-        public bool IsEmpty()
+        public override bool IsEmpty()
         {
             return _queue.Length == 0;
         }
 
-        public int Size()
+        public override int Size()
         {
             return _queue.Length;
         }
