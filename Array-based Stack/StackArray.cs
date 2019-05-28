@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace DataStructure
 {
-    public class StackArray<T> : DataStructure<T>, IStack<T>
+    public class StackArray<T> : DataStructure<T>, IStack<T>, IEnumerable<T>
     {
         private T[] _stack;
 
@@ -81,6 +83,19 @@ namespace DataStructure
         public override int Size()
         {
             return _stack.Length;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+        public EnumeratorForArrayBasedStructures<T> GetEnumerator()
+        {
+            return new EnumeratorForArrayBasedStructures<T>(_stack);
+        }
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }

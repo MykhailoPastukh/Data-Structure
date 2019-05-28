@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace DataStructure
 {
-    public class RingBufferArray<T> : DataStructure<T>, IRingBuffer<T>
+    public class RingBufferArray<T> : DataStructure<T>, IRingBuffer<T>, IEnumerable<T>
     {
         private T[] _ringBuffer;
         private int _start;
@@ -107,6 +109,25 @@ namespace DataStructure
         public override int Size()
         {
             return _size;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+        public EnumeratorForArrayBasedStructures <T> GetEnumerator()
+        {
+            T[] arr = new T[_size];
+            for (int i = 0, j = _start; i < _size; i++, j++)
+            {
+                arr[i] = _ringBuffer[j];
+            }
+            return new EnumeratorForArrayBasedStructures<T>(arr);
+        }
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }
