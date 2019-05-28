@@ -5,6 +5,26 @@ namespace DataStructure.Tests
 {
     public class LinkedListTests
     {
+
+        [Fact]
+        public void Enumerable_EnumShouldWork()
+        {
+            // Arrange
+            LinkedList<int> sut = new LinkedList<int> { 1, 2, 3, 4, 5 };
+            int[] arr = new int[5];
+
+            // Act
+            int i = 0;
+            foreach (var item in sut)
+            {
+                arr[i] = item;
+                i++;
+            }
+
+            // Assert
+
+            Assert.Equal(new int[] { 1, 2, 3, 4, 5 }, arr);
+        }
         [Fact]
         public void Size_EmptyLinkedListShouldReturnZero()
         {
