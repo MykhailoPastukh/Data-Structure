@@ -161,9 +161,11 @@ namespace DataStructure.Tests
         public void Indexer_GetFromWrongIndexShouldThrowExeption()
         {
             // Arrange
-            RingBufferLinkedList<double> sut = new RingBufferLinkedList<double>(10);
-            sut.Add(1);
-            sut.Add(2);
+            RingBufferLinkedList<double> sut = new RingBufferLinkedList<double>(10)
+            {
+                1,
+                2
+            };
 
             // Act
 
@@ -175,14 +177,40 @@ namespace DataStructure.Tests
         public void Indexer_SetFromWrongIndexShouldThrowExeption()
         {
             // Arrange
-            RingBufferLinkedList<double> sut = new RingBufferLinkedList<double>(10);
-            sut.Add(1);
-            sut.Add(2);
+            RingBufferLinkedList<double> sut = new RingBufferLinkedList<double>(10)
+            {
+                1,
+                2
+            };
 
             // Act
 
             // Assert
             Assert.Throws<IndexOutOfRangeException>(() => sut[5] = 10);
+        }
+
+        [Fact]
+        public void Enumerable_EnumShouldWork()
+        {
+            // Arrange
+            RingBufferLinkedList<int> sut = new RingBufferLinkedList<int>(5);
+            int[] arr = new int[3];
+
+            // Act
+            sut.Add(1);
+            sut.Add(2);
+            sut.Add(3);
+
+            int i = 0;
+            foreach (var item in sut)
+            {
+                arr[i] = item;
+                i++;
+            }
+
+            // Assert
+
+            Assert.Equal(new int[] { 1, 2, 3 }, arr);
         }
     }
 }

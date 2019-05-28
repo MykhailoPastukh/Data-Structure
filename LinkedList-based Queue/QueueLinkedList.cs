@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace DataStructure
 {
-    public class QueueLinkedList<T> : DataStructure<T>, IQueue<T>
+    public class QueueLinkedList<T> : DataStructure<T>, IQueue<T>, IEnumerable<T>
     {
         private Node<T> _first;
         private Node<T> _last;
@@ -101,6 +103,19 @@ namespace DataStructure
         public override int Size()
         {
             return _size;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+        public EnumeratorForLinkedList<T> GetEnumerator()
+        {
+            return new EnumeratorForLinkedList<T>(_first);
+        }
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }

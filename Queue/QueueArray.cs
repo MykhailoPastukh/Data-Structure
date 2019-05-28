@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DataStructure
 {
-    public class QueueArray<T> : DataStructure<T>, IQueue<T>
+    public class QueueArray<T> : DataStructure<T>, IQueue<T>, IEnumerable<T>
     {
         private T[] _queue;
 
@@ -80,6 +82,19 @@ namespace DataStructure
         public override int Size()
         {
             return _queue.Length;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+        public EnumeratorForArrayBasedStructures<T> GetEnumerator()
+        {
+            return new EnumeratorForArrayBasedStructures<T>(_queue);
+        }
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }

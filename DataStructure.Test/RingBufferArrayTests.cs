@@ -6,6 +6,30 @@ namespace DataStructure.Tests
     public class RingBufferArrayTests
     {
         [Fact]
+        public void Enumerable_EnumShouldWork()
+        {
+            // Arrange
+            RingBufferArray<int> sut = new RingBufferArray<int>(5);
+            int[] arr = new int[3];
+
+            // Act
+            sut.Add(1);
+            sut.Add(2);
+            sut.Add(3);
+
+            int i = 0;
+            foreach (var item in sut)
+            {
+                arr[i] = item;
+                i++;
+            }
+
+            // Assert
+
+            Assert.Equal(new int[] { 1, 2, 3 }, arr);
+        }
+
+        [Fact]
         public void IsEmpty_EmptyRingBufferShouldReturnTrue()
         {
             // Arrange
@@ -61,10 +85,12 @@ namespace DataStructure.Tests
         public void Get_GetFromEmptyRingBufferShouldNotWork()
         {
             // Arrange
-            RingBufferArray<int> sut = new RingBufferArray<int>(10);
+            RingBufferArray<int> sut = new RingBufferArray<int>(10)
+            {
 
-            // Act
-            sut.Add(42);
+                // Act
+                42
+            };
             sut.Get();
 
             // Assert
@@ -134,9 +160,11 @@ namespace DataStructure.Tests
         public void Indexer_GetFromWrongIndexShouldThrowExeption()
         {
             // Arrange
-            RingBufferArray<double> sut = new RingBufferArray<double>(10);
-            sut.Add(1);
-            sut.Add(2);
+            RingBufferArray<double> sut = new RingBufferArray<double>(10)
+            {
+                1,
+                2
+            };
 
             // Act
 
@@ -148,9 +176,11 @@ namespace DataStructure.Tests
         public void Indexer_SetFromWrongIndexShouldThrowExeption()
         {
             // Arrange
-            RingBufferArray<double> sut = new RingBufferArray<double>(10);
-            sut.Add(1);
-            sut.Add(2);
+            RingBufferArray<double> sut = new RingBufferArray<double>(10)
+            {
+                1,
+                2
+            };
 
             // Act
 

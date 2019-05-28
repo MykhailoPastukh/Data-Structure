@@ -127,11 +127,11 @@ namespace DataStructure
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return (IEnumerator)GetEnumerator();
+            return GetEnumerator();
         }
-        public Enumer<T> GetEnumerator()
+        public EnumeratorForLinkedList<T> GetEnumerator()
         {
-            return new Enumer<T>(_first);
+            return new EnumeratorForLinkedList<T>(_first);
         }
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {

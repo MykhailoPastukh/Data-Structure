@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace DataStructure
 {
-    public class StackLinkedList<T> : DataStructure<T>, IStack<T>
+    public class StackLinkedList<T> : DataStructure<T>, IStack<T>, IEnumerable<T>
     {
         private Node<T> _first;
         private int _size;
@@ -89,6 +91,19 @@ namespace DataStructure
         public override int Size()
         {
             return _size;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+        public EnumeratorForLinkedList<T> GetEnumerator()
+        {
+            return new EnumeratorForLinkedList<T>(_first);
+        }
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }

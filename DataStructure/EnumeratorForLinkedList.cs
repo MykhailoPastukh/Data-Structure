@@ -2,11 +2,11 @@
 using System.Collections;
 namespace DataStructure
 {
-    public class Enumer<T> : IEnumerator
+    public class EnumeratorForLinkedList<T> : IEnumerator
     {
         public Node<T> _first;
         private Node<T> _position;
-        public Enumer(Node<T> first)
+        public EnumeratorForLinkedList(Node<T> first)
         {
             _first = first;
             _position = null;

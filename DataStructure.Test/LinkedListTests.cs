@@ -205,9 +205,11 @@ namespace DataStructure.Tests
         public void Indexer_GetFromWrongIndexShouldThrowExeption()
         {
             // Arrange
-            LinkedList<double> sut = new LinkedList<double>();
-            sut.Add(1);
-            sut.Add(2);
+            LinkedList<double> sut = new LinkedList<double>
+            {
+                1,
+                2
+            };
 
             // Act
 

@@ -45,7 +45,9 @@
     <Compile Include="DataStructure.cs" />
     <Compile Include="DataStructureIsEmptyOnReadExeption.cs" />
     <Compile Include="DataStructureIsFullOnInsertExeption.cs" />
-    <Compile Include="Enumer.cs" />
+    <Compile Include="EnumeratorForArrayBasedStructures.cs" />
+    <Compile Include="EnumeratorForLinkedList.cs" />
+    <Compile Include="EnumeratorForRingBufLinkedList.cs" />
     <Compile Include="IDataStructure.cs" />
     <Compile Include="ILinkedList.cs" />
     <Compile Include="IQueue.cs" />

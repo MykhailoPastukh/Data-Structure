@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace DataStructure
 {
-    public class RingBufferLinkedList<T> : DataStructure<T>, IRingBuffer<T>
+    public class RingBufferLinkedList<T> : DataStructure<T>, IRingBuffer<T>, IEnumerable<T>
     {
         private int _size;
         private int _count;
@@ -125,6 +127,31 @@ namespace DataStructure
                 currentNode = currentNode.GetNext();
             }
             _size += length;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+        public EnumeratorForRingBufLinkedList<T> GetEnumerator()
+        {
+            //Node<T> first = new Node<T>(_end.GetItem());
+            //Node<T> current = _end.GetPrevious();
+            //int i = _count-1;
+            //while (i>0)
+            //{
+            //    Node<T> newNode = new Node<T>(current.GetItem());
+            //    first.SetPrevious(newNode);
+            //    newNode.SetNext(first);
+            //    first = newNode;
+            //    current = current.GetPrevious();
+            //    i--;
+            //}
+            return new EnumeratorForRingBufLinkedList<T>(_first,_count);
+        }
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }
