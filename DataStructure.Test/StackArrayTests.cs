@@ -1,10 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace DataStructure.Tests
 {
     public class StackArrayTests
     {
+        [Fact]
+        public void Filter_FilterShouldWork()
+        {
+            // Arrange
+            StackArray<int> sut = new StackArray<int> { 2,8,7,12,23,14,1,25,17,5 };
+            int[] expected = { 5, 14, 12, 7, 8 };
+
+            // Act
+            IEnumerable<int> actual = sut.Filter(item => item >= 5 && item <= 14);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
         [Theory]
         [InlineData(100)]
         [InlineData(1000)]

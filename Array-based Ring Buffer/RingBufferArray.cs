@@ -22,7 +22,7 @@ namespace DataStructure
             _end = 0;
         }
 
-        public T this[int index]
+        public override T this[int index]
         {
             get
             {

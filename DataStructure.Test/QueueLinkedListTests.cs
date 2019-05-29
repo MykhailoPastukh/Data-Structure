@@ -7,6 +7,20 @@ namespace DataStructure.Tests
     public class QueueLinkedListTests
     {
         [Fact]
+        public void Filter_FilterShouldWork()
+        {
+            // Arrange
+            QueueLinkedList<double> sut = new QueueLinkedList<double> { double.MaxValue, 2.7, 4.25, 5.28, 1.3, 2.8 };
+            double[] expected = { 5.28, 4.25, double.MaxValue };
+
+            // Act
+            IEnumerable<double> actual = sut.Filter(item => item > 4.1);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
         public void IsEmpty_EmptyQueueShouldReturnTrue()
         {
             // Arrange

@@ -1,10 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace DataStructure.Tests
 {
     public class RingBufferLinkedListTests
     {
+        [Fact]
+        public void Filter_FilterShouldWork()
+        {
+            // Arrange
+            RingBufferLinkedList<int> sut = new RingBufferLinkedList<int>(10) { 4, 2, 3, 5, 1, 2 };
+            int[] expected = { 4, 5 };
+
+            // Act
+            IEnumerable<int> actual = sut.Filter(item => item >= 4);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
         [Fact]
         public void Add_AddSomeNumbersToRingBufferShouldWork()
         {

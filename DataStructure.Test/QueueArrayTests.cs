@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace DataStructure.Tests
@@ -153,6 +154,20 @@ namespace DataStructure.Tests
 
             // Assert
             Assert.Equal(new int[] { 1, 2, 3, 4, 5 }, arr);
+        }
+
+        [Fact]
+        public void Filter_FilterShouldWork()
+        {
+            // Arrange
+            QueueArray<double> sut = new QueueArray<double> { 4.3, 2.7, 4.25, 5.28, 1.3, 2.8 };
+            double[] expected = { 5.28, 4.25, 4.3  };
+
+            // Act
+            IEnumerable<double> actual = sut.Filter(item => item > 4.1);
+
+            // Assert
+            Assert.Equal(expected, actual);
         }
     }
 }

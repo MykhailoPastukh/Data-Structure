@@ -1,10 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace DataStructure.Tests
 {
     public class LinkedListTests
     {
+        [Fact]
+        public void Filter_FilterShouldWork()
+        {
+            // Arrange
+            LinkedList<int> sut = new LinkedList<int> { 1, 3, 4, 5, 7, 8 };
+            int[] expected = new int[] { 5, 7, 8 };
+
+            // Act
+            IEnumerable<int> actual = sut.Filter(item => item > 4);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
 
         [Fact]
         public void Enumerable_EnumShouldWork()
@@ -15,6 +29,7 @@ namespace DataStructure.Tests
 
             // Act
             int i = 0;
+            sut.GetEnumerator();
             foreach (var item in sut)
             {
                 arr[i] = item;

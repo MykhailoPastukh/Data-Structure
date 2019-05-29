@@ -9,7 +9,7 @@ namespace DataStructure
         private Node<T> _first;
         private int _size;
 
-        public T this[int index]
+        public override T this[int index]
         {
             get
             {

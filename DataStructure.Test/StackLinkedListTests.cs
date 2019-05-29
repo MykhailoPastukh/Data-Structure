@@ -1,10 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace DataStructure.Tests
 {
     public class StackLinkedListTests
     {
+        [Fact]
+        public void Filter_FilterShouldWork()
+        {
+            // Arrange
+            QueueArray<string> sut = new QueueArray<string> { "abc", "125", "253", "one" };
+            string[] expected = { "one" };
+
+            // Act
+            IEnumerable<string> actual = sut.Filter(item => item == "one");
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
         [Fact]
         public void Size_EmptyStackShouldReturnZero()
         {

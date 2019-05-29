@@ -32,7 +32,7 @@ namespace DataStructure
             _end = _first.GetPrevious();
         }
 
-        public T this[int index]
+        public override T this[int index]
         {
             get
             {
@@ -135,18 +135,6 @@ namespace DataStructure
         }
         public EnumeratorForRingBufLinkedList<T> GetEnumerator()
         {
-            //Node<T> first = new Node<T>(_end.GetItem());
-            //Node<T> current = _end.GetPrevious();
-            //int i = _count-1;
-            //while (i>0)
-            //{
-            //    Node<T> newNode = new Node<T>(current.GetItem());
-            //    first.SetPrevious(newNode);
-            //    newNode.SetNext(first);
-            //    first = newNode;
-            //    current = current.GetPrevious();
-            //    i--;
-            //}
             return new EnumeratorForRingBufLinkedList<T>(_first,_count);
         }
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
