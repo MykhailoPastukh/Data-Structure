@@ -5,6 +5,8 @@ namespace DataStructure
     public delegate void DataStructureEventHandler<T>(IDataStructure<T> sender, EventArgs e);
     public abstract class DataStructure<T> : IDataStructure<T>
     {
+        public abstract T this[int index] { get; set; }
+
         public event DataStructureEventHandler<T> AddElement;
         public event DataStructureEventHandler<T> RemoveElement;
         public event DataStructureEventHandler<T> ContainerEmpty;
@@ -27,6 +29,7 @@ namespace DataStructure
             ContainerFull?.Invoke(this, e);
         }
 
+        
         public abstract void Add(T item);
         public abstract T Get();
         public abstract void Clear();

@@ -1,10 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace DataStructure.Tests
 {
     public class RingBufferArrayTests
     {
+        [Fact]
+        public void Filter_FilterShouldWork()
+        {
+            // Arrange
+            QueueArray<double> sut = new QueueArray<double> { 4.3, 2.7, 4.25, 5.28, 1.3, double.MinValue };
+            double[] expected = { double.MinValue, 1.3, 2.7  };
+
+            // Act
+            IEnumerable<double> actual = sut.Filter(item => item < 4.1);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
         [Fact]
         public void Enumerable_EnumShouldWork()
         {

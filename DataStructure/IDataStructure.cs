@@ -7,5 +7,11 @@
         void Clear();
         bool IsEmpty();
         int Size();
+
+        T this[int index]
+        {
+            get;
+            set;
+        }
     }
 }

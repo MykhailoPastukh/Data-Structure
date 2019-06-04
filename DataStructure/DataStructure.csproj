@@ -49,6 +49,7 @@
     <Compile Include="EnumeratorForLinkedList.cs" />
     <Compile Include="EnumeratorForRingBufLinkedList.cs" />
     <Compile Include="IDataStructure.cs" />
+    <Compile Include="DataStructureExtension.cs" />
     <Compile Include="ILinkedList.cs" />
     <Compile Include="IQueue.cs" />
     <Compile Include="IRingBuffer.cs" />
